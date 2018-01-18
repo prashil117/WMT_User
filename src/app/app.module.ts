@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//import { routingArray } from './app.route';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +16,9 @@ import { HttpClientModule,HttpHeaders } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
 import { HotelsComponent } from './hotels/hotels.component';
+import { ViewHotelComponent } from './view-hotel/view-hotel.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { routingArray } from './app.route';
 
 
 @NgModule({
@@ -34,12 +36,16 @@ import { HotelsComponent } from './hotels/hotels.component';
     FooterComponent,
     UserProfileComponent,
     EditUserProfileComponent,
-    HotelsComponent
+    HotelsComponent,
+    ViewHotelComponent,
+    GalleryComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    routingArray
   ],
   providers: [],
   bootstrap: [AppComponent]

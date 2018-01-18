@@ -1,3 +1,4 @@
+import { NavbarComponent } from './navbar/navbar.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { Routes, RouterModule } from '@angular/router';
 import { TravelerComponent } from './traveler/traveler.component';
@@ -10,6 +11,8 @@ import { PaySuccessComponent } from './pay-success/pay-success.component';
 import { PaymentComponent } from './payment/payment.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
+import { GalleryComponent } from './gallery/gallery.component';
+
 
 const routing:Routes = [
     {path: '',redirectTo:'/login',pathMatch:'full'},
@@ -24,6 +27,6 @@ const routing:Routes = [
     {path:'user',component:UserProfileComponent},
     {path:'edit_user',component:EditUserProfileComponent},
     {path:'Hotels',component:HotelsComponent},
-    
+    {path:'gallery',component:GalleryComponent}
   ];
   export const routingArray=RouterModule.forRoot(routing);
