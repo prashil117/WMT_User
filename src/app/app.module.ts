@@ -20,6 +20,7 @@ import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.
 import { HotelsComponent } from './hotels/hotels.component';
 import { ViewHotelComponent } from './view-hotel/view-hotel.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { CarService } from './car/car.service';
 import { routingArray } from './app.route';
 
 
@@ -51,7 +52,7 @@ import { routingArray } from './app.route';
     FormsModule,
     routingArray
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
