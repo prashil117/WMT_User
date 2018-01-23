@@ -21,6 +21,7 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { ViewHotelComponent } from './view-hotel/view-hotel.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { CarService } from './car/car.service';
+import { TravelerService } from './traveler/traveler.service';
 import { routingArray } from './app.route';
 
 
@@ -52,7 +53,7 @@ import { routingArray } from './app.route';
     FormsModule,
     routingArray
   ],
-  providers: [CarService],
+  providers: [CarService,TravelerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -269,13 +269,13 @@
                 </ul>
             </div>
             <ul class="booking-list">
-                <li>
+                <li *ngFor="let item of traveler">
                     <a class="booking-item" href="#">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="booking-item-car-img">
                                     <img src="./assets/img/Volkswagen-Touareg-Edition-X.png" alt="Image Alternative text" title="Image Title" />
-                                    <p class="booking-item-car-title">Volkswagen Touareg</p>
+                                    <p class="booking-item-car-title">Traveller:{{item.traveller_name}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -314,13 +314,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3"><span class="booking-item-price">$34</span><span>/day</span>
+                            <div class="col-md-3"><span class="booking-item-price">{{item.car_rate}}</span><span>/KM</span>
                                 <p class="booking-item-flight-class">Crossover</p><span class="btn btn-primary">Select</span>
                             </div>
                         </div>
                     </a>
                 </li>
-                <li>
+                <!--<li>
                     <a class="booking-item" href="#">
                         <div class="row">
                             <div class="col-md-3">
@@ -1035,7 +1035,7 @@
                             </div>
                         </div>
                     </a>
-                </li>
+                </li>-->
             </ul>
             <div class="row">
                 <div class="col-md-6">

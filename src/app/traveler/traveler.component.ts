@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Rx';
+import { TravelerService } from './traveler.service';
+import { Traveler } from './travelerc';
+import { Car } from '../car/carc';
 
 @Component({
   selector: 'app-traveler',
@@ -6,10 +11,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./traveler.component.css']
 })
 export class TravelerComponent implements OnInit {
-
-  constructor() { }
+  public _subscription:Subscription;
+  name:string="";
+  tname:string="";
+  rate:number;
+  img:string="";
+  traveler:Traveler[]=[];
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravelerService) { }
 
   ngOnInit() {
+    this._subscription=this._activatedRoute.params.subscribe(
+      (para:any)=>{
+          this.name=para["car_name"];
+         
+      }
+  );
+
+  this._data.getTravellerByName(this.name).subscribe(
+    (data:any)=>{
+      this.tname=data[0].traveller_name;
+      this.traveler=data;
+   /*   this.rate=data[0].car_rate;
+      this.img=data[0].traveller_photo;*/
+    }
+  );
   }
 
 }
