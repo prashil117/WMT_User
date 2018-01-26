@@ -270,7 +270,7 @@
             </div>
             <ul class="booking-list">
                 <li *ngFor="let item of traveler">
-                    <a class="booking-item" href="#">
+                    <a class="booking-item">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="booking-item-car-img">
@@ -315,7 +315,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3"><span class="booking-item-price">{{item.car_rate}}</span><span>/KM</span>
-                                <p class="booking-item-flight-class">Crossover</p><span class="btn btn-primary">Select</span>
+                                <p class="booking-item-flight-class">Crossover</p><span class="btn btn-primary" (click)="select()">Select</span>
                             </div>
                         </div>
                     </a>

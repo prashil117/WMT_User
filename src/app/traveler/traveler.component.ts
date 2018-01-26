@@ -23,7 +23,7 @@ export class TravelerComponent implements OnInit {
     this._subscription=this._activatedRoute.params.subscribe(
       (para:any)=>{
           this.name=para["car_name"];
-         
+          localStorage.setItem('name',this.name);
       }
   );
 
@@ -35,6 +35,12 @@ export class TravelerComponent implements OnInit {
       this.img=data[0].traveller_photo;*/
     }
   );
+  }
+
+  select()
+  {
+   // alert(this.name);
+   // alert(item.traveller_id);
   }
 
 }
