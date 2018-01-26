@@ -37,10 +37,11 @@ export class TravelerComponent implements OnInit {
   );
   }
 
-  select()
+  select(item)
   {
    // alert(this.name);
    // alert(item.traveller_id);
+   this._router.navigate(['/order',item.fk_traveller_id]);
   }
 
 }

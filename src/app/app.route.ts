@@ -21,7 +21,7 @@ const routing:Routes = [
     {path:'car_detail',component:CarDetailComponent},
     {path:'home',component:HomeComponent},
     {path:'traveler/:car_name',component:TravelerComponent},
-    {path:'order',component:OrderComponent},
+    {path:'order/:id',component:OrderComponent},
     {path:'payment',component:PaymentComponent},
     {path:'pay_success',component:PaySuccessComponent},
     {path:'user',component:UserProfileComponent},
