@@ -36,7 +36,7 @@
                             <label>
                                 <input class="i-check" type="checkbox" checked/>Add to My Cards</label>
                         </div>
-                        <input class="btn btn-primary" type="submit" value="Proceed Payment" />
+                        <input class="btn btn-primary" routerLink="/pay_success" type="submit" value="Proceed Payment" />
                     </form>
                 </div>
 
@@ -62,7 +62,7 @@
                         </header>
                         <ul class="booking-item-payment-details">
                             <li>
-                                <h5>Booking for 7 nights</h5>
+                                <h5>Booking Details</h5>
                                 <div class="booking-item-payment-date">
                                     <p class="booking-item-payment-date-day">April, 26</p>
                                     <p class="booking-item-payment-date-weekday">Saturday</p>
@@ -73,22 +73,39 @@
                                 </div>
                             </li>
                             <li>
-                                <h5>Property (2 Guests)</h5>
+                              <b>  <h3>BILL DETAILS</h3> </b>
                                 <ul class="booking-item-payment-price">
                                     <li>
-                                        <p class="booking-item-payment-price-title">7 days</p>
-                                        <p class="booking-item-payment-price-amount">$170<small>/per day</small>
+                                        <p class="booking-item-payment-price-title">Rate of Car</p>
+                                        <p class="booking-item-payment-price-amount">{{rate}}<small>/per day</small>
                                         </p>
                                     </li>
                                     <li>
-                                        <p class="booking-item-payment-price-title">Taxes</p>
-                                        <p class="booking-item-payment-price-amount">$15<small>/per day</small>
+                                        <p class="booking-item-payment-price-title">Total km</p>
+                                        <p class="booking-item-payment-price-amount">{{km}}<small>/per day</small>
                                         </p>
                                     </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Driver Allowance</p>
+                                        <p class="booking-item-payment-price-amount">+200<small>/per day</small>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Amount</p>
+                                        <p class="booking-item-payment-price-amount">{{final}}<small></small>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">GST</p>
+                                        <p class="booking-item-payment-price-amount">{{gst}}<small></small>
+                                        </p>
+                                    </li>
+                                    
+                
                                 </ul>
                             </li>
                         </ul>
-                        <p class="booking-item-payment-total">Total trip: <span>$1,295</span>
+                        <p class="booking-item-payment-total">Total Trip: <span>${{finalrate}}</span>
                         </p>
                     </div>
                 </div>

@@ -13,7 +13,15 @@ export class OrderComponent implements OnInit {
   public _subscription:Subscription;
   public id:number;
   public cname:string="";
-  rate:number;
+  public ans:number=0;
+  public rate:number;
+  public gst:number;
+  public cgst:number;
+  public sgst:number;
+  public km:number=400;
+  public driverallow:number=200;
+  public final:number;
+  public finalrate:number;
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService) { }
 
   ngOnInit() {
@@ -33,8 +41,35 @@ export class OrderComponent implements OnInit {
       console.log(this.cname);
       this.rate=data[0].car_rate;
       console.log(this.rate);
+      if (this.km>300) {
+        this.ans=this.km*this.rate;
+        this.final=this.ans+this.ans;
+        this.gst=(this.final*5)/100;
+        this.finalrate=this.final+this.gst;
+
+
+        
+      } 
+      
+      
+      else {
+        
+        this.ans=this.rate*300;
+        this.final=this.ans+this.driverallow;
+        this.gst=(this.final*5)/100;
+        this.finalrate=this.final+this.gst;
+        
+      }
+     
+      
+      
     }
   );
+
+  
   }
+
+  
+  
 
 }

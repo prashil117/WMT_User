@@ -14,6 +14,8 @@ import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.
 import { GalleryComponent } from './gallery/gallery.component';
 
 
+
+
 const routing:Routes = [
     {path: '',redirectTo:'/login',pathMatch:'full'},
     {path:'login',component:LoginComponent},
