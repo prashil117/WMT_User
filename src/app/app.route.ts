@@ -17,7 +17,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 
 
 const routing:Routes = [
-    {path: '',redirectTo:'/login',pathMatch:'full'},
+    {path: '',redirectTo:'/home',pathMatch:'full'},
     {path:'login',component:LoginComponent},
     {path:'car',component:CarComponent},
     {path:'car_detail',component:CarDetailComponent},

@@ -1,4 +1,5 @@
 
+
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,15 @@ import { TravelerService } from './traveler/traveler.service';
 import { OrderService } from './order/order.service';
 import { routingArray } from './app.route';
 
+import { MapService } from './home/map.service';
+import { AgmCoreModule } from '@agm/core';
 
+const googleMapsParams = {
+  apiKey: 'AIzaSyAx2FpIpogwOcsBCnz9xhGBVF97hJm9XFA',
+  libraries: ['places'],
+  language: 'en',
+  region: 'UA'
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,8 +54,10 @@ import { routingArray } from './app.route';
     ViewHotelComponent,
     GalleryComponent,
     
+    
   ],
   imports: [
+    AgmCoreModule.forRoot(googleMapsParams),
     RouterModule,
     BrowserModule,
     
@@ -54,7 +65,7 @@ import { routingArray } from './app.route';
     FormsModule,
     routingArray
   ],
-  providers: [CarService,TravelerService,OrderService],
+  providers: [CarService,TravelerService,OrderService,MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
