@@ -27,8 +27,7 @@
 
                                 <li><a href="#tab-3" data-toggle="tab"><i class="fa fa-bolt"></i> <span >Cars</span></a>
                                 </li>
-                                <li><a href="#tab-5" data-toggle="tab"><i class="fa fa-bolt"></i> <span >Activities</span></a>
-                                </li>
+                                
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="tab-3">
@@ -49,22 +48,6 @@
                                                     
                                                 </div>
                                             </div>
-                                            
-                                         </div>
-                                        <button class="btn btn-primary btn-lg" routerLink="" (click)="getkm()" type="submit">Search for Cars</button>
-                                    </form>
-                                </div>
-
-                                <div class="tab-pane fade" id="tab-5">
-                                    <h2>Search for Activities</h2>
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
-                                                    <label>Where are you going?</label>
-                                                    <input class="typeahead form-control" placeholder="City, Airport, Point of Interest or U.S. Zip Code" type="text" />
-                                                </div>
-                                            </div>
                                             <div class="col-md-4">
                                                 <div class="input-daterange" data-date-format="M d, D">
                                                     <div class="row">
@@ -83,32 +66,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <button class="btn btn-primary btn-lg" routerLink="/car" type="submit">Search for Activities</button>
+                                         </div>
+                                        <button class="btn btn-primary btn-lg" routerLink="/car" (click)="getkm()" type="submit">Search for Cars</button>
                                     </form>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                {{origin}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                {{destination}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                {{duration}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                {{distance1[0]}}
-                                            </td>
-                                        </tr>
-                                    
-                                    </table>
                                 </div>
                             </div>
                         </div>

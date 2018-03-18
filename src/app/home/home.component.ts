@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     origin:string=null;
     destination:string=null;
     duration:string=null;
-    distance1:string[]=[];
+    distance1:string;
     x:string;
     y:string;
   constructor(private mapsApiLoader:MapsAPILoader,public data:MapService,private ngZone:NgZone) { }
@@ -70,9 +70,10 @@ export class HomeComponent implements OnInit {
         this.origin=this.map.origin;
         this.destination=this.map.destination;
         this.duration=this.map.duration;
-        this.distance1=this.distance.split(" ");
-        console.log(data);
-        console.log(this.distance);
+        this.distance1=this.distance.slice(0,this.distance.indexOf(' '));
+        localStorage.setItem('distance',this.distance1);
+       // console.log(data);
+        //console.log(this.distance);
         
       },
       function(err){
