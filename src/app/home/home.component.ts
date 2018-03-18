@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
     distance1:string;
     x:string;
     y:string;
+    d1:string="";
+    d2:string="";
   constructor(private mapsApiLoader:MapsAPILoader,public data:MapService,private ngZone:NgZone) { }
 
   ngOnInit() {
@@ -60,7 +62,8 @@ export class HomeComponent implements OnInit {
   getkm()
   {
 
-
+    console.log(this.d1);
+    console.log(this.d2);
         
     this.data.getDistance(this.x,this.y).subscribe(
       (data:map)=>{

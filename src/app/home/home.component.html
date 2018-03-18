@@ -34,34 +34,47 @@
                                     <h2>Search for Cheap Rentals Cars</h2>
                                     <form>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                                     <label>Pick-up Location</label>
-                                                    <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='x' required name="x" id="x" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search />
+                                                    <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='x' required name="x" id="x" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search  />
                                                     
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
                                                     <label>Drop-off Location</label>
                                                     <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='y' required name="y" id="y" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search1 />
                                                     
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="input-daterange" data-date-format="M d, D">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                                            <!-- <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                                                 <label>From</label>
                                                                 <input class="form-control" name="start" type="text" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                                            </div> -->
+                                                            <label>From</label>
+                                                            <mat-form-field class="example-full-width">
+                                                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="d1" name="bod" #bod="ngModel">
+                                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                                <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                                                              </mat-form-field> 
+
+                                                         </div>
+                                                        <div class="col-md-6"> 
+                                                            <!-- <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                                                 <label>To</label>
                                                                 <input class="form-control" name="end" type="text" />
-                                                            </div>
+                                                            </div> -->
+                                                            <label>To</label>
+                                                            <mat-form-field class="example-full-width">
+                                                                <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="d2" name="bod" #bod="ngModel">
+                                                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                                <mat-datepicker touchUi="true" #picker1></mat-datepicker>
+                                                              </mat-form-field>  
                                                         </div>
                                                     </div>
                                                 </div>
@@ -95,7 +108,7 @@
             </tr>
             <tr>
                 <td>
-                    {{distance1[0]}}
+                    {{distance}}
                 </td>
             </tr>
         

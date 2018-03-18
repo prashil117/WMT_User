@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -24,6 +25,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { CarService } from './car/car.service';
 import { TravelerService } from './traveler/traveler.service';
 import { OrderService } from './order/order.service';
+import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTableModule,MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule } from '@angular/material';
 import { routingArray } from './app.route';
 
 import { MapService } from './home/map.service';
@@ -60,9 +62,14 @@ const googleMapsParams = {
     AgmCoreModule.forRoot(googleMapsParams),
     RouterModule,
     BrowserModule,
-    
+    BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule,MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule,
     routingArray
   ],
   providers: [CarService,TravelerService,OrderService,MapService],
