@@ -25,6 +25,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { CarService } from './car/car.service';
 import { TravelerService } from './traveler/traveler.service';
 import { OrderService } from './order/order.service';
+import { UserService } from './login/user.service';
 import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTableModule,MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule } from '@angular/material';
 import { routingArray } from './app.route';
 
@@ -72,7 +73,7 @@ const googleMapsParams = {
     MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule,
     routingArray
   ],
-  providers: [CarService,TravelerService,OrderService,MapService],
+  providers: [CarService,TravelerService,OrderService,MapService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
