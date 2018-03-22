@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { OrderService } from './order.service';
 import { Car } from '../car/carc';
+import { order } from './orderc';
 
 @Component({
   selector: 'app-order',
@@ -23,6 +24,8 @@ export class OrderComponent implements OnInit {
   public final:number;
   public finalrate:number;
   public distance:string;
+  source:string;
+  destination:string;
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService) { }
 
   ngOnInit() {
@@ -43,7 +46,11 @@ export class OrderComponent implements OnInit {
       this.rate=data[0].car_rate;
       console.log(this.rate);
       this.distance=localStorage.getItem('distance');
+      this.source=localStorage.getItem('source');
+      this.destination=localStorage.getItem('destination');
+      console.log(this.distance);
       this.km=+this.distance;
+      console.log(this.km);
       if (this.km>300) {
         this.ans=this.km*this.rate;
         this.final=this.ans+this.driverallow;
@@ -70,6 +77,19 @@ export class OrderComponent implements OnInit {
   );
 
   
+  }
+  onAdd()
+  {
+    let item=new order ("",this.source,this.destination,"","","",null,null,this.id,"");
+    this._data.Onorder(item).subscribe(
+
+     (data:any)=>{
+       console.log(data);
+       this._router.navigate(['/pay_success']);
+     }
+
+    )
+
   }
 
   

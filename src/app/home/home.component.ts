@@ -75,8 +75,11 @@ export class HomeComponent implements OnInit {
         this.duration=this.map.duration;
         this.distance1=this.distance.slice(0,this.distance.indexOf(' '));
         localStorage.setItem('distance',this.distance1);
-       // console.log(data);
-        //console.log(this.distance);
+        console.log(this.distance1);
+        localStorage.setItem('source',this.x);
+        localStorage.setItem('destination',this.y);
+        console.log(data);
+        console.log(this.distance);
         
       },
       function(err){
