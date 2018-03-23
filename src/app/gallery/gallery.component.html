@@ -1,6 +1,15 @@
 <app-navbar></app-navbar>
 <div class="container">
-    <h1 class="page-title">Gallery 3 Columns</h1>
+    <!-- <h1 class="page-title">Gallery 3 Columns</h1> -->
+
+    <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+        <!-- <label>Password</label>
+        <input class="form-control" type="password" placeholder="my secret password" /> -->
+        <mat-form-field class="example-full-width">
+            <input matInput ngModel required name="imagesrch" type="text" placeholder="Image Search" #imagesrch="ngModel">
+             <mat-error *ngIf="imagesrch.hasError('required')" >Enter Image</mat-error>
+          </mat-form-field>
+    </div>
 </div>
 
 
