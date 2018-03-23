@@ -7,6 +7,7 @@ export class UserService {
 
   public url: string = "http://localhost:3000/users/";
   public url1:string="http://localhost:3000/login/";
+  public url2: string = "http://localhost:3000/uemail/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";
@@ -22,6 +23,11 @@ export class UserService {
         let body=JSON.stringify(item);
       
         return this._http.post(this.url1,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
+      }
+
+      getUserByEmail(id)
+      {
+        return this._http.get(this.url2+id);
       }
 
 }

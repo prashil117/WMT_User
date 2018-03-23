@@ -64,6 +64,8 @@ export class HomeComponent implements OnInit {
 
     console.log(this.d1);
     console.log(this.d2);
+    localStorage.setItem('Checkin',this.d1);
+    localStorage.setItem('Checkout',this.d2);
         
     this.data.getDistance(this.x,this.y).subscribe(
       (data:map)=>{
