@@ -26,6 +26,8 @@ export class OrderComponent implements OnInit {
   public distance:string;
   source:string;
   destination:string;
+  checkin:string;
+  checkout;string;
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService) { }
 
   ngOnInit() {
@@ -51,6 +53,8 @@ export class OrderComponent implements OnInit {
       console.log(this.distance);
       this.km=+this.distance;
       console.log(this.km);
+      this.checkin=localStorage.getItem('Checkin');
+      this.checkout=localStorage.getItem('Checkout');
       if (this.km>300) {
         this.ans=this.km*this.rate;
         this.final=this.ans+this.driverallow;
@@ -80,7 +84,7 @@ export class OrderComponent implements OnInit {
   }
   onAdd()
   {
-    let item=new order ("",this.source,this.destination,"","","",null,null,this.id,"");
+    let item=new order ("",this.source,this.destination,"",this.checkin,this.checkout,null,null,this.id,"");
     this._data.Onorder(item).subscribe(
 
      (data:any)=>{
