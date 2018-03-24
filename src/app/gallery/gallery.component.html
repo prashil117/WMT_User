@@ -21,7 +21,7 @@
         <div *ngFor="let image of images" class="col-md-4">
 
             <a class="hover-img popup-gallery-image" routerLink="" data-effect="mfp-zoom-out">
-                <img src="{{ image.webformatURL }}" alt="Image Alternative text" title="{{image.tags}}" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
+                <img height="280" width="50" src="{{ image.webformatURL }}" alt="Image Alternative text" title="{{image.tags}}" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
             </a>
         </div>
         <div class="row row-col-gap">
@@ -89,4 +89,6 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>
+<app-footer></app-footer>
 <app-footer></app-footer>

@@ -28,9 +28,12 @@ export class OrderComponent implements OnInit {
   destination:string;
   checkin:string;
   checkout;string;
+  date:Date;
+  currentDate:string;
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService) { }
 
   ngOnInit() {
+    
     this._subscription=this._activatedRoute.params.subscribe(
       (para:any)=>{
           this.id=para["id"];
@@ -38,6 +41,7 @@ export class OrderComponent implements OnInit {
           
          
       }
+  
   );
   this.cname=localStorage.getItem('name');
   let item = new Car(this.cname,'','','',null,'','',this.id);
@@ -55,12 +59,13 @@ export class OrderComponent implements OnInit {
       console.log(this.km);
       this.checkin=localStorage.getItem('Checkin');
       this.checkout=localStorage.getItem('Checkout');
+      this.date=new Date();
+      this.currentDate=this.date.getDate().toString();
       if (this.km>300) {
         this.ans=this.km*this.rate;
         this.final=this.ans+this.driverallow;
         this.gst=(this.final*5)/100;
         this.finalrate=this.final+this.gst;
-
 
         
       } 
@@ -84,7 +89,7 @@ export class OrderComponent implements OnInit {
   }
   onAdd()
   {
-    let item=new order ("",this.source,this.destination,"",this.checkin,this.checkout,null,null,this.id,"");
+    let item=new order ("",this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
     this._data.Onorder(item).subscribe(
 
      (data:any)=>{
