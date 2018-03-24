@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
   constructor(private mapsApiLoader:MapsAPILoader,public data:MapService,private ngZone:NgZone) { }
 
   ngOnInit() {
+
+    localStorage.clear();
     this.mapsApiLoader.load().then(
       ()=>{
       let autocomplete=new google.maps.places.Autocomplete(this.searchElement.nativeElement,{types:["address"]});

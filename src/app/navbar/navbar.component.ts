@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
       (data: User[]) => {
         this.name = data[0].user_name;
         this.img=data[0].user_photo;
+        console.log(this.name);
       }
     );;
   }

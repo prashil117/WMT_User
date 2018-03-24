@@ -24,6 +24,9 @@ export class OrderComponent implements OnInit {
   public final:number;
   public finalrate:number;
   public distance:string;
+  date:Date;
+  email:string;
+currentdate:number;
   source:string;
   destination:string;
   checkin:string;
@@ -50,9 +53,15 @@ export class OrderComponent implements OnInit {
       this.distance=localStorage.getItem('distance');
       this.source=localStorage.getItem('source');
       this.destination=localStorage.getItem('destination');
+      this.email=localStorage.getItem('Email');
       console.log(this.distance);
       this.km=+this.distance;
       console.log(this.km);
+      this.date=new Date();
+      console.log(this.date.getDate());
+      console.log(this.currentdate);
+      this.currentdate=this.date.getDate();
+      
       this.checkin=localStorage.getItem('Checkin');
       this.checkout=localStorage.getItem('Checkout');
       if (this.km>300) {
@@ -84,7 +93,9 @@ export class OrderComponent implements OnInit {
   }
   onAdd()
   {
-    let item=new order ("",this.source,this.destination,"",this.checkin,this.checkout,null,null,this.id,"");
+
+    
+    let item=new order (this.email,this.source,this.destination,this.currentdate+"",this.checkin,this.checkout,null,null,this.id,"");
     this._data.Onorder(item).subscribe(
 
      (data:any)=>{

@@ -15,7 +15,10 @@ export class CarComponent implements OnInit {
   ngOnInit() {
     this.data1.getCarList().subscribe(
       (data:any)=>{
+        
         this.car=data;
+        console.log(this.car);
+        
       }
     );
   }
