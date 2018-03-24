@@ -18,13 +18,14 @@
 <p *ngIf="searching">Fetching Data...</p>
 <div class="container">
     <div id="popup-gallery">
-        <div *ngFor="let image of images" class="col-md-4">
-
-            <a class="hover-img popup-gallery-image" routerLink="" data-effect="mfp-zoom-out">
-                <img height="280" width="50" src="{{ image.webformatURL }}" alt="Image Alternative text" title="{{image.tags}}" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
-            </a>
-        </div>
         <div class="row row-col-gap">
+            <div *ngFor="let image of images" class="col-md-4">
+
+                <a class="hover-img popup-gallery-image" routerLink="" data-effect="mfp-zoom-out">
+                    <img height="280" width="50" src="{{ image.webformatURL }}" alt="Image Alternative text" title="{{image.tags}}" /><i class="fa fa-plus round box-icon-small hover-icon i round"></i>
+                </a>
+            </div>
+
             <div class="col-md-4">
 
                 <a class="hover-img popup-gallery-image" routerLink="./assets/img/gaviota_en_el_top_800x600.jpg" data-effect="mfp-zoom-out">
