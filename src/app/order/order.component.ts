@@ -4,7 +4,9 @@ import { Subscription } from 'rxjs/Rx';
 import { OrderService } from './order.service';
 import { Car } from '../car/carc';
 import { order } from './orderc';
-
+import { UserService } from '../login/user.service';
+import { User } from '../login/userc';
+import { Email } from './emailc';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -25,12 +27,14 @@ export class OrderComponent implements OnInit {
   public finalrate:number;
   public distance:string;
   source:string;
+  email:string;
   destination:string;
   checkin:string;
   checkout;string;
   date:Date;
   currentDate:string;
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService) { }
+  email_bill:string;
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService) { }
 
   ngOnInit() {
     
@@ -44,6 +48,7 @@ export class OrderComponent implements OnInit {
   
   );
   this.cname=localStorage.getItem('name');
+  this.email=localStorage.getItem('Email');
   let item = new Car(this.cname,'','','',null,'','',this.id);
   this._data.order(item).subscribe(
     (data:Car[])=>{
@@ -52,6 +57,7 @@ export class OrderComponent implements OnInit {
       this.rate=data[0].car_rate;
       console.log(this.rate);
       this.distance=localStorage.getItem('distance');
+      
       this.source=localStorage.getItem('source');
       this.destination=localStorage.getItem('destination');
       console.log(this.distance);
@@ -89,19 +95,19 @@ export class OrderComponent implements OnInit {
   }
   onAdd()
   {
-    let item=new order ("",this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
+    let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
     this._data.Onorder(item).subscribe(
-
+      
      (data:any)=>{
        console.log(data);
        this._router.navigate(['/pay_success']);
-     }
+     })
+     
 
-    )
-
-  }
+    }
+  
 
   
   
-
 }
+

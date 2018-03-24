@@ -12,7 +12,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
 import { GalleryComponent } from './gallery/gallery.component';
-
+import { ForgotComponent } from './forgot/forgot.component';
 
 
 
@@ -29,6 +29,7 @@ const routing:Routes = [
     {path:'user',component:UserProfileComponent},
     {path:'edit_user',component:EditUserProfileComponent},
     {path:'Hotels',component:HotelsComponent},
-    {path:'gallery',component:GalleryComponent}
+    {path:'gallery',component:GalleryComponent},
+    {path:'forgot',component:ForgotComponent}
   ];
   export const routingArray=RouterModule.forRoot(routing);

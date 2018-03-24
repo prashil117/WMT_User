@@ -1,5 +1,6 @@
 
 
+
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,6 +32,8 @@ import { routingArray } from './app.route';
 import { MapService } from './home/map.service';
 import { ImageService } from './gallery/image.service';
 import { AgmCoreModule } from '@agm/core';
+import { ForgotComponent } from './forgot/forgot.component';
+import { ForgotService } from './forgot/forgot.service';
 
 const googleMapsParams = {
   apiKey: 'AIzaSyAx2FpIpogwOcsBCnz9xhGBVF97hJm9XFA',
@@ -56,6 +59,7 @@ const googleMapsParams = {
     HotelsComponent,
     ViewHotelComponent,
     GalleryComponent,
+    ForgotComponent,
     
     
   ],
@@ -73,7 +77,7 @@ const googleMapsParams = {
     MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule,
     routingArray
   ],
-  providers: [CarService,TravelerService,OrderService,MapService,UserService,ImageService],
+  providers: [CarService,TravelerService,OrderService,MapService,UserService,ImageService,ForgotService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
