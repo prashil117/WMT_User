@@ -28,8 +28,8 @@ import { OrderService } from './order/order.service';
 import { UserService } from './login/user.service';
 import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTableModule,MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule } from '@angular/material';
 import { routingArray } from './app.route';
-
 import { MapService } from './home/map.service';
+import { ImageService } from './gallery/image.service';
 import { AgmCoreModule } from '@agm/core';
 
 const googleMapsParams = {
@@ -73,7 +73,7 @@ const googleMapsParams = {
     MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule,
     routingArray
   ],
-  providers: [CarService,TravelerService,OrderService,MapService,UserService],
+  providers: [CarService,TravelerService,OrderService,MapService,UserService,ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
