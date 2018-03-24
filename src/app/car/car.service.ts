@@ -6,6 +6,7 @@ import { Car } from './carc';
 export class CarService {
 
   public url: string = "http://localhost:3000/carlist/";
+  public url1: string = "http://localhost:3000/cars/";
 
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
@@ -16,4 +17,12 @@ export class CarService {
     return this._http.get<Car>(this.url);
   }
 
+  getCarById(id)
+  {
+    return this._http.get<Car>(this.url1+id);
+  }
+
+  
+
+  
 }

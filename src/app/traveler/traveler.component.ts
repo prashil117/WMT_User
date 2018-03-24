@@ -41,6 +41,8 @@ export class TravelerComponent implements OnInit {
   {
    // alert(this.name);
    // alert(item.traveller_id);
+   //console.log("hbcdj"+item.traveller_id);
+   localStorage.setItem('tid',item.traveller_id);
    this._router.navigate(['/order',item.fk_traveller_id]);
   }
 

@@ -7,6 +7,9 @@ import { order } from './orderc';
 import { UserService } from '../login/user.service';
 import { User } from '../login/userc';
 import { Email } from './emailc';
+import { CarService } from '../car/car.service';
+import { TravelerService } from '../traveler/traveler.service';
+import { Traveler } from '../traveler/travelerc';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -30,11 +33,14 @@ export class OrderComponent implements OnInit {
   email:string;
   destination:string;
   checkin:string;
-  checkout;string;
+  checkout:string;
   date:Date;
   currentDate:string;
   email_bill:string;
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService) { }
+  tid:string;
+  public msg:string="";
+  public t:string;
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datac:CarService,public datat:TravelerService) { }
 
   ngOnInit() {
     
@@ -47,6 +53,14 @@ export class OrderComponent implements OnInit {
       }
   
   );
+  this.tid=localStorage.getItem('tid');
+  this.datat.getTravellerById(this.tid).subscribe(
+    (data5:Traveler[])=>{ 
+      this.t=data5[0].traveller_name;
+      console.log(this.t);
+    }
+  );
+
   this.cname=localStorage.getItem('name');
   this.email=localStorage.getItem('Email');
   let item = new Car(this.cname,'','','',null,'','',this.id);
@@ -96,13 +110,21 @@ export class OrderComponent implements OnInit {
   onAdd()
   {
     let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
+    this.msg="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"Traveller :"+this.t+"Car :"+this.cname;
     this._data.Onorder(item).subscribe(
       
      (data:any)=>{
        console.log(data);
        this._router.navigate(['/pay_success']);
      })
-     
+
+     let item1=new Email("Hello,"+this.msg,this.email,"Order"); 
+     this._data.sendMail(item1).subscribe(
+     (data:any)=>{
+       console.log(data);
+      console.log("Msg sent");
+       this._router.navigate(['/pay_success']);
+     })
 
     }
   

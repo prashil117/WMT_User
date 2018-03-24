@@ -25,7 +25,7 @@ export class OrderService {
         return this._http.post(this.url1, body, { headers: new HttpHeaders().set(this.content, this.header) });
       }
 
-      sendMail(item:order){
+      sendMail(item){
         let body = JSON.stringify(item);
         return this._http.post(this.url2, body, { headers: new HttpHeaders().set(this.content, this.header) });
       }
