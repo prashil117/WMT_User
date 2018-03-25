@@ -40,6 +40,7 @@ export class OrderComponent implements OnInit {
   temail:string;
   tid:string;
   uname:string;
+  uno:string;
   public msg:string="";
   public msg1:string="";
   public t:string;
@@ -70,6 +71,7 @@ export class OrderComponent implements OnInit {
   this.datau.getUserByEmail(this.email).subscribe(
     (data:User[])=>{ 
       this.uname=data[0].user_name;
+      this.uno=data[0].user_mobile_no;
       console.log(this.uname);
     }
   );
@@ -123,7 +125,7 @@ export class OrderComponent implements OnInit {
   {
     let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
     this.msg="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"Traveller :"+this.t+"Car :"+this.cname+"Km :"+this.km;
-    this.msg1="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"User :"+this.uname+"User Email :"+this.email+"Car :"+this.cname+"Km :"+this.km;
+    this.msg1="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"User :"+this.uname+"User Email :"+this.email+"User No :"+this.uno+"Car :"+this.cname+"Km :"+this.km;
     this._data.Onorder(item).subscribe(
       
      (data:any)=>{
