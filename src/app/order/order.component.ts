@@ -37,10 +37,13 @@ export class OrderComponent implements OnInit {
   date:Date;
   currentDate:string;
   email_bill:string;
+  temail:string;
   tid:string;
+  uname:string;
   public msg:string="";
+  public msg1:string="";
   public t:string;
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datac:CarService,public datat:TravelerService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datau:UserService,public datat:TravelerService) { }
 
   ngOnInit() {
     
@@ -54,15 +57,24 @@ export class OrderComponent implements OnInit {
   
   );
   this.tid=localStorage.getItem('tid');
+  this.cname=localStorage.getItem('name');
+  this.email=localStorage.getItem('Email');
   this.datat.getTravellerById(this.tid).subscribe(
     (data5:Traveler[])=>{ 
       this.t=data5[0].traveller_name;
+      this.temail=data5[0].traveller_email;
       console.log(this.t);
     }
   );
 
-  this.cname=localStorage.getItem('name');
-  this.email=localStorage.getItem('Email');
+  this.datau.getUserByEmail(this.email).subscribe(
+    (data:User[])=>{ 
+      this.uname=data[0].user_name;
+      console.log(this.uname);
+    }
+  );
+
+ 
   let item = new Car(this.cname,'','','',null,'','',this.id);
   this._data.order(item).subscribe(
     (data:Car[])=>{
@@ -110,7 +122,8 @@ export class OrderComponent implements OnInit {
   onAdd()
   {
     let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
-    this.msg="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"Traveller :"+this.t+"Car :"+this.cname;
+    this.msg="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"Traveller :"+this.t+"Car :"+this.cname+"Km :"+this.km;
+    this.msg1="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"User :"+this.uname+"User Email :"+this.email+"Car :"+this.cname+"Km :"+this.km;
     this._data.Onorder(item).subscribe(
       
      (data:any)=>{
@@ -125,7 +138,14 @@ export class OrderComponent implements OnInit {
       console.log("Msg sent");
        this._router.navigate(['/pay_success']);
      })
-
+     
+     let item2=new Email("Hello,"+this.msg1,this.temail,"Order"); 
+     this._data.sendMail(item2).subscribe(
+     (data:any)=>{
+       console.log(data);
+      console.log("Msg sent");
+       this._router.navigate(['/pay_success']);
+     })
     }
   
 
