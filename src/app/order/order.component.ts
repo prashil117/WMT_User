@@ -97,7 +97,7 @@ export class OrderComponent implements OnInit {
       this.currentDate=this.date.getDate().toString();
       if (this.km>300) {
         this.ans=this.km*this.rate;
-        this.final=this.ans+this.driverallow;
+        this.final=(this.ans+this.driverallow);
         this.gst=(this.final*5)/100;
         this.finalrate=this.final+this.gst;
 
@@ -108,7 +108,7 @@ export class OrderComponent implements OnInit {
       else {
         
         this.ans=this.rate*300;
-        this.final=this.ans+this.driverallow;
+        this.final=(this.ans+this.driverallow);
         this.gst=(this.final*5)/100;
         this.finalrate=this.final+this.gst;
         
@@ -124,8 +124,8 @@ export class OrderComponent implements OnInit {
   onAdd()
   {
     let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
-    this.msg="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"Traveller :"+this.t+"Car :"+this.cname+"Km :"+this.km;
-    this.msg1="Destination: "+this.destination+"Current Date: "+this.currentDate+"Checkin :"+this.checkin+"Checkout :"+this.checkout+"User :"+this.uname+"User Email :"+this.email+"User No :"+this.uno+"Car :"+this.cname+"Km :"+this.km;
+    this.msg="Destination:---------- "+"    "+this.destination+"    "+"Current Date:----- "+"     "+this.currentDate+"     "+"Checkin :------------"+"    " +this.checkin+"    "+"Checkout :-----------"+"    "+this.checkout+"    "+"Traveller :-----------"+"    "+this.t+"    "+"Car :-----------"+"   "+this.cname+"    "+"Km :----"+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
+    this.msg1="Destination:---------"+this.destination+"Current Date:--------- "+this.currentDate+"Checkin --------:"+this.checkin+"Checkout :-----------"+this.checkout+"User :----------"+this.uname+"User Email :-----------"+this.email+"User No :--------"+this.uno+"Car :-------"+this.cname+"Km :----------"+this.km;
     this._data.Onorder(item).subscribe(
       
      (data:any)=>{
