@@ -25,5 +25,9 @@ export class NavbarComponent implements OnInit {
       }
     );;
   }
+  onCar()
+  {
+    this._router.navigate(['/car']);
+  }
 
 }
