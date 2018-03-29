@@ -13,6 +13,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ForgotComponent } from './forgot/forgot.component';
+import { UserorderComponent } from './userorder/userorder.component';
 
 
 
@@ -30,6 +31,7 @@ const routing:Routes = [
     {path:'edit_user',component:EditUserProfileComponent},
     {path:'Hotels',component:HotelsComponent},
     {path:'gallery',component:GalleryComponent},
-    {path:'forgot',component:ForgotComponent}
+    {path:'forgot',component:ForgotComponent},
+    {path:'userorder',component:UserorderComponent}
   ];
   export const routingArray=RouterModule.forRoot(routing);

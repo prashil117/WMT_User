@@ -34,6 +34,7 @@ import { ImageService } from './gallery/image.service';
 import { AgmCoreModule } from '@agm/core';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ForgotService } from './forgot/forgot.service';
+import { UserorderComponent } from './userorder/userorder.component';
 
 const googleMapsParams = {
   apiKey: 'AIzaSyAx2FpIpogwOcsBCnz9xhGBVF97hJm9XFA',
@@ -60,6 +61,7 @@ const googleMapsParams = {
     ViewHotelComponent,
     GalleryComponent,
     ForgotComponent,
+    UserorderComponent,
     
     
   ],

@@ -8,6 +8,7 @@ export class OrderService {
   public url: string = "http://localhost:3000/order/";
   public url1: string = "http://localhost:3000/orderbill/";
   public url2: string = "http://localhost:3000/email/";
+  public url3:string="http://localhost:3000/userorder/";
   constructor(public _http: HttpClient) { }
 
   content: string = "Content-Type";
@@ -29,5 +30,12 @@ export class OrderService {
         let body = JSON.stringify(item);
         return this._http.post(this.url2, body, { headers: new HttpHeaders().set(this.content, this.header) });
       }
+
+      getOrderById(id)
+      {
+        return this._http.get<order>(this.url3+id);
+      }
+
+
 }
 
