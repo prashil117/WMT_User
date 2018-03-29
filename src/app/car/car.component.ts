@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CarComponent implements OnInit {
   public car:Car[]=[];
+  public car_img:string="";
   constructor(public data1:CarService,public _router:Router) { }
 
   ngOnInit() {
