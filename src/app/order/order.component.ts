@@ -39,6 +39,7 @@ export class OrderComponent implements OnInit {
   email_bill:string;
   temail:string;
   tid:string;
+  cid:number;
   uname:string;
   uno:string;
   public msg:string="";
@@ -77,12 +78,14 @@ export class OrderComponent implements OnInit {
   );
 
  
-  let item = new Car(this.cname,'','','',null,'','',this.id);
+  let item = new Car(null,this.cname,'','','',null,'','',this.id);
   this._data.order(item).subscribe(
     (data:Car[])=>{
       console.log(this.id);
       console.log(this.cname);
       this.rate=data[0].car_rate;
+      this.cid=data[0].car_id;
+      console.log("car"+this.cid);
       console.log(this.rate);
       this.distance=localStorage.getItem('distance');
       
@@ -123,7 +126,7 @@ export class OrderComponent implements OnInit {
   }
   onAdd()
   {
-    let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,null,null,this.id,"");
+    let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,this.cid,null,this.id,"");
     this.msg="Destination:---------- "+"    "+this.destination+"    "+"Current Date:----- "+"     "+this.currentDate+"     "+"Checkin :------------"+"    " +this.checkin+"    "+"Checkout :-----------"+"    "+this.checkout+"    "+"Traveller :-----------"+"    "+this.t+"    "+"Car :-----------"+"   "+this.cname+"    "+"Km :----"+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
     this.msg1="Destination:---------"+this.destination+"Current Date:--------- "+this.currentDate+"Checkin --------:"+this.checkin+"Checkout :-----------"+this.checkout+"User :----------"+this.uname+"User Email :-----------"+this.email+"User No :--------"+this.uno+"Car :-------"+this.cname+"Km :----------"+this.km;
     this._data.Onorder(item).subscribe(

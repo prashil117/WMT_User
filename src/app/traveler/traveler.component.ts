@@ -46,4 +46,9 @@ export class TravelerComponent implements OnInit {
    this._router.navigate(['/order',item.fk_traveller_id]);
   }
 
+  Onchange()
+  {
+    localStorage.clear();
+    this._router.navigate(['/home']);
+  }
 }

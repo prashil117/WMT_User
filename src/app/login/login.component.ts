@@ -97,6 +97,7 @@ export class LoginComponent implements OnInit {
             console.log(data);
             //this._router.navigate(['/user']);
             console.log("Yess");
+            
           }
         );
       }
