@@ -4,7 +4,8 @@
         <div class="bg-front full-height bg-front-mob-rel">
             <div class="container full-height">
                 <div class="rel full-height">
-                    <div class="tagline visible-lg" id="tagline"><span>It's time to</span>
+                    <div class="tagline visible-lg" id="tagline">
+                        <span>It's time to</span>
                         <ul>
                             <li>relax</li>
                             <li>play</li>
@@ -25,11 +26,19 @@
                         <div class="tabbable">
                             <ul class="nav nav-tabs" id="myTab">
 
-                                <li class="active"><a href="#tab-3" data-toggle="tab"><i class="fa fa-bolt"></i> <span >Cars</span></a>
+                                <li class="active">
+                                    <a href="#tab-3" data-toggle="tab">
+                                        <i class="fa fa-bolt"></i>
+                                        <span>Cars</span>
+                                    </a>
                                 </li>
-                                <li ><a href="#tab-1" data-toggle="tab"><i class="fa fa-building-o"></i> <span >Hotels</span></a>
+                                <li>
+                                    <a href="#tab-2" data-toggle="tab">
+                                        <i class="fa fa-plane"></i>
+                                        <span>Hotels</span>
+                                    </a>
                                 </li>
-                                
+
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="tab-3">
@@ -37,17 +46,21 @@
                                     <form>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                                <div class="form-group form-group-lg form-group-icon-left">
+                                                    <i class="fa fa-map-marker input-icon"></i>
                                                     <label>Pick-up Location</label>
-                                                    <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='x' required name="x" id="x" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search  />
-                                                    
+                                                    <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='x' required name="x" id="x" autocorrect="off"
+                                                        autocapitalize="off" spellcheck="off" class="form-control" #search />
+
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
+                                                <div class="form-group form-group-lg form-group-icon-left">
+                                                    <i class="fa fa-map-marker input-icon"></i>
                                                     <label>Drop-off Location</label>
-                                                    <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='y' required name="y" id="y" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search1 />
-                                                    
+                                                    <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='y' required name="y" id="y" autocorrect="off"
+                                                        autocapitalize="off" spellcheck="off" class="form-control" #search1 />
+
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -63,10 +76,10 @@
                                                                 <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="d1" name="bod" #bod="ngModel">
                                                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                                                 <mat-datepicker touchUi="true" #picker></mat-datepicker>
-                                                              </mat-form-field> 
+                                                            </mat-form-field>
 
-                                                         </div>
-                                                        <div class="col-md-6"> 
+                                                        </div>
+                                                        <div class="col-md-6">
                                                             <!-- <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                                                 <label>To</label>
                                                                 <input class="form-control" name="end" type="text" />
@@ -76,25 +89,29 @@
                                                                 <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="d2" name="bod" #bod="ngModel">
                                                                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                                                 <mat-datepicker touchUi="true" #picker1></mat-datepicker>
-                                                              </mat-form-field>  
+                                                            </mat-form-field>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                         </div>
+                                        </div>
                                         <button class="btn btn-primary btn-lg" routerLink="/car" (click)="getkm()" type="submit">Search for Cars</button>
                                     </form>
                                 </div>
 
-                                <div class="tab-pane fade in active" id="tab-1">
+                                <div class="tab-pane" id="tab-2">
                                     <h2>Search and Save on Hotels</h2>
                                     <form>
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon"></i>
-                                                    <label>Where are you going?</label>
-                                                    <input class="typeahead form-control" [(ngModel)]="city" placeholder="City, Airport, Point of Interest or U.S. Zip Code" type="text" />
+                                                <div class="form-group form-group-lg form-group-icon-left">
+                                                    <i class="fa fa-map-marker input-icon"></i>
+                                                    <label>Pick-up Location</label>
+                                                    <!-- <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]="city" /> -->
+                                                    <input type="text" class="typeahead form-control" placeholder="City, Address" name="cityname" id="" [(ngModel)]="city">
+
                                                 </div>
+
                                             </div>
                                         </div>
                                         <button class="btn btn-primary btn-lg" (click)="viewHotel()" type="submit">Search for Hotels</button>
@@ -131,7 +148,7 @@
                     {{distance}}
                 </td>
             </tr>
-        
+
         </table>
         <div class="owl-carousel owl-slider owl-carousel-area visible-lg" id="owl-carousel-slider" data-nav="false">
             <div class="bg-holder full">
@@ -162,30 +179,39 @@
             <div class="row row-wrap" data-gutter="120">
                 <div class="col-md-4">
                     <div class="thumb">
-                        <header class="thumb-header"><i class="fa fa-briefcase box-icon-black round box-icon-big animate-icon-top-to-bottom"></i>
+                        <header class="thumb-header">
+                            <i class="fa fa-briefcase box-icon-black round box-icon-big animate-icon-top-to-bottom"></i>
                         </header>
                         <div class="thumb-caption">
-                            <h5 class="thumb-title"><a class="text-darken" href="#">Combine & Save</a></h5>
+                            <h5 class="thumb-title">
+                                <a class="text-darken" href="#">Combine & Save</a>
+                            </h5>
                             <p class="thumb-desc">Faucibus tristique felis potenti ultrices ornare rhoncus semper hac facilisi</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="thumb">
-                        <header class="thumb-header"><i class="fa fa-dollar box-icon-black round box-icon-big animate-icon-top-to-bottom"></i>
+                        <header class="thumb-header">
+                            <i class="fa fa-dollar box-icon-black round box-icon-big animate-icon-top-to-bottom"></i>
                         </header>
                         <div class="thumb-caption">
-                            <h5 class="thumb-title"><a class="text-darken" href="#">Best Price Guarantee</a></h5>
+                            <h5 class="thumb-title">
+                                <a class="text-darken" href="#">Best Price Guarantee</a>
+                            </h5>
                             <p class="thumb-desc">Rutrum tellus lorem sem velit nisi non pharetra in dui</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="thumb">
-                        <header class="thumb-header"><i class="fa fa-lock box-icon-black round box-icon-big animate-icon-top-to-bottom"></i>
+                        <header class="thumb-header">
+                            <i class="fa fa-lock box-icon-black round box-icon-big animate-icon-top-to-bottom"></i>
                         </header>
                         <div class="thumb-caption">
-                            <h5 class="thumb-title"><a class="text-darken" href="#">Trust & Safety</a></h5>
+                            <h5 class="thumb-title">
+                                <a class="text-darken" href="#">Trust & Safety</a>
+                            </h5>
                             <p class="thumb-desc">Nostra sodales pharetra lacus sit sapien tristique luctus class magnis</p>
                         </div>
                     </div>
@@ -203,20 +229,29 @@
             <div class="gap gap-big text-center text-white">
                 <h2 class="text-uc mb20">Last Minute Deal</h2>
                 <ul class="icon-list list-inline-block mb0 last-minute-rating">
-                    <li><i class="fa fa-star"></i>
+                    <li>
+                        <i class="fa fa-star"></i>
                     </li>
-                    <li><i class="fa fa-star"></i>
+                    <li>
+                        <i class="fa fa-star"></i>
                     </li>
-                    <li><i class="fa fa-star"></i>
+                    <li>
+                        <i class="fa fa-star"></i>
                     </li>
-                    <li><i class="fa fa-star"></i>
+                    <li>
+                        <i class="fa fa-star"></i>
                     </li>
-                    <li><i class="fa fa-star"></i>
+                    <li>
+                        <i class="fa fa-star"></i>
                     </li>
                 </ul>
                 <h5 class="last-minute-title">The Peninsula - New York</h5>
                 <p class="last-minute-date">Fri 14 Mar - Sun 16 Mar</p>
-                <p class="mb20"><b>$120</b> / person</p><a class="btn btn-lg btn-white btn-ghost" href="#">Book Now <i class="fa fa-angle-right"></i></a>
+                <p class="mb20">
+                    <b>$120</b> / person</p>
+                <a class="btn btn-lg btn-white btn-ghost" href="#">Book Now
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -237,7 +272,9 @@
                         <img src="./../assets/img/flags/32/gr.png" alt="Image Alternative text" title="Image Title" />
                     </div>
                     <div class="thumb-caption">
-                        <h4 class="thumb-title"><a class="text-darken" href="#">Crete</a></h4>
+                        <h4 class="thumb-title">
+                            <a class="text-darken" href="#">Crete</a>
+                        </h4>
                         <div class="thumb-caption">
                             <p class="thumb-desc">Interdum arcu lacus parturient mattis phasellus</p>
                         </div>
@@ -255,7 +292,9 @@
                         <img src="./../assets/img/flags/32/fr.png" alt="Image Alternative text" title="Image Title" />
                     </div>
                     <div class="thumb-caption">
-                        <h4 class="thumb-title"><a class="text-darken" href="#">Paris</a></h4>
+                        <h4 class="thumb-title">
+                            <a class="text-darken" href="#">Paris</a>
+                        </h4>
                         <div class="thumb-caption">
                             <p class="thumb-desc">Est cubilia est nulla sed aptent</p>
                         </div>
@@ -266,14 +305,17 @@
                 <div class="thumb">
                     <header class="thumb-header">
                         <a class="hover-img curved" href="#">
-                            <img src="./../assets/img/el_inevitable_paso_del_tiempo_800x600.jpg" alt="Image Alternative text" title="El inevitable paso del tiempo" />
+                            <img src="./../assets/img/el_inevitable_paso_del_tiempo_800x600.jpg" alt="Image Alternative text" title="El inevitable paso del tiempo"
+                            />
                         </a>
                     </header>
                     <div class="img-left">
                         <img src="./../assets/img/flags/32/hu.png" alt="Image Alternative text" title="Image Title" />
                     </div>
                     <div class="thumb-caption">
-                        <h4 class="thumb-title"><a class="text-darken" href="#">Budapest</a></h4>
+                        <h4 class="thumb-title">
+                            <a class="text-darken" href="#">Budapest</a>
+                        </h4>
                         <div class="thumb-caption">
                             <p class="thumb-desc">Ornare lobortis rhoncus pulvinar consectetur feugiat</p>
                         </div>
@@ -284,14 +326,17 @@
                 <div class="thumb">
                     <header class="thumb-header">
                         <a class="hover-img curved" href="#">
-                            <img src="./../assets/img/upper_lake_in_new_york_central_park_800x600.jpg" alt="Image Alternative text" title="Upper Lake in New York Central Park" />
+                            <img src="./../assets/img/upper_lake_in_new_york_central_park_800x600.jpg" alt="Image Alternative text" title="Upper Lake in New York Central Park"
+                            />
                         </a>
                     </header>
                     <div class="img-left">
                         <img src="./../assets/img/flags/32/us.png" alt="Image Alternative text" title="Image Title" />
                     </div>
                     <div class="thumb-caption">
-                        <h4 class="thumb-title"><a class="text-darken" href="#">New York</a></h4>
+                        <h4 class="thumb-title">
+                            <a class="text-darken" href="#">New York</a>
+                        </h4>
                         <div class="thumb-caption">
                             <p class="thumb-desc">Hendrerit aliquet ornare rutrum fermentum facilisis</p>
                         </div>

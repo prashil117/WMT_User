@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Rx';
+import {  HotelService} from './hotel.service';
+import { hotel } from './hotelc';
 
 @Component({
   selector: 'app-hotels',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelsComponent implements OnInit {
 
-  constructor() { }
+  public destination:string="";
+  hotels:hotel[]=[];
+  hotel_name:string;
+  
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:HotelService) { }
 
   ngOnInit() {
+
+
+    this.destination=localStorage.getItem('Hcity');
+
+    console.log(this.destination);
+
+
+    this._data.getHotelByCity(this.destination).subscribe(
+      (data:any)=>{
+        this.hotels=data;
+      }
+    );
+
   }
 
 }
