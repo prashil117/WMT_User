@@ -3,6 +3,9 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { order } from '../order/orderc';
 import { OrderService } from '../order/order.service';
+import { User } from '../login/userc';
+import { UserService } from "../login/user.service";
+
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
 @Component({
@@ -15,10 +18,13 @@ export class UserorderComponent implements OnInit {
   public _subscription:Subscription;
   email:string;
   email1:string;
+  name1:string="";
+
+  img:string="";
   order:order[]=[];
   displayedColumns = ['source','destination', 'Booking_date','checking_date','checkout_date','amount','car_id','car_name'];
   dataSource: MatTableDataSource<order>;
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public data:UserService) { }
 
   ngOnInit() {
     this._subscription=this._activatedRoute.params.subscribe(
@@ -37,6 +43,14 @@ export class UserorderComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.order);
       this.dataSource.paginator=this.paginator
       console.log(this.order);
+    }
+  );
+
+  this.data.getUserByEmail(this.email).subscribe(
+    (data:User[])=>{
+      this.name1=data[0].user_name;
+      this.img=data[0].user_photo;
+      console.log(data);
     }
   );
 

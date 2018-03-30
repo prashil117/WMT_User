@@ -11,7 +11,7 @@
         <div class="col-md-3">
             <aside class="user-profile-sidebar">
                 <div class="user-profile-avatar text-center">
-                    <img src="http://localhost:3000/{{img}}" alt="Image Alternative text" title="AMaze" />
+                    <img src="http://localhost:3000/images/user/{{img}}" alt="Image Alternative text" title="AMaze" />
                     <h5>{{name1}}</h5>
                 </div>
                 <ul class="list user-profile-nav">
@@ -34,11 +34,7 @@
             <!-- <div class="row">
                 <div class="col-md-5"> -->
                   <div class="example-container mat-elevation-z8">
-                    <div class="example-header">
-                            <mat-form-field>
-                              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-                            </mat-form-field>
-                          </div>
+                   
                 <mat-table #table [dataSource]="dataSource" matSort>
                     
                    
