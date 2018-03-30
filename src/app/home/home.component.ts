@@ -3,6 +3,7 @@ import { MapService } from './map.service';
 import { MapsAPILoader } from "@agm/core";
 import {  } from "@types/googlemaps";
 import { map } from './mapc';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -21,11 +22,12 @@ export class HomeComponent implements OnInit {
     destination:string=null;
     duration:string=null;
     distance1:string;
+    city:string;
     x:string;
     y:string;
     d1:string="";
     d2:string="";
-  constructor(private mapsApiLoader:MapsAPILoader,public data:MapService,private ngZone:NgZone) { }
+  constructor(private mapsApiLoader:MapsAPILoader,public data:MapService,private ngZone:NgZone,public _router:Router) { }
 
   ngOnInit() {
     
@@ -92,5 +94,11 @@ export class HomeComponent implements OnInit {
 
       }
     );
+  }
+
+  viewHotel()
+  {
+    localStorage.setItem('Hcity',this.city);
+    this._router.navigate(['/viewhotel']);
   }
 }

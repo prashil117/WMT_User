@@ -14,6 +14,7 @@ import { EditUserProfileComponent } from './edit-user-profile/edit-user-profile.
 import { GalleryComponent } from './gallery/gallery.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { UserorderComponent } from './userorder/userorder.component';
+import { ViewHotelComponent } from './view-hotel/view-hotel.component';
 
 
 
@@ -32,6 +33,7 @@ const routing:Routes = [
     {path:'Hotels',component:HotelsComponent},
     {path:'gallery',component:GalleryComponent},
     {path:'forgot',component:ForgotComponent},
-    {path:'userorder',component:UserorderComponent}
+    {path:'userorder',component:UserorderComponent},
+    {path:'viewhotel',component:ViewHotelComponent},
   ];
   export const routingArray=RouterModule.forRoot(routing);
