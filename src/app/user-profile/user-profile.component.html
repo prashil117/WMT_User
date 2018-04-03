@@ -75,7 +75,7 @@
                             <label>Home Airport</label>
                             <input class="form-control" value="London Heathrow Airport (LHR)" type="text" />-->
                             <mat-form-field  class="example-full-width">
-                                    <input matInput ngModel required  name="mobile" type="text" placeholder="Enter Mobile No" [(ngModel)]="mobile1" #mobile="ngModel">
+                                    <input matInput ngModel required maxlength="10" minlength="10" number  name="mobile" type="text" placeholder="Enter Mobile No" [(ngModel)]="mobile1" #mobile="ngModel">
                                      <mat-error *ngIf="mobile.hasError('required')" >Enter Mobile No</mat-error>
                                   </mat-form-field>
                         </div>
@@ -91,7 +91,7 @@
                             <label>Current Password</label>
                             <input class="form-control" type="password" />-->
                             <mat-form-field  class="example-full-width">
-                                    <input matInput ngModel required password name="password1" type="password" placeholder="Enter Original Password" [(ngModel)]="pass1" #password1="ngModel">
+                                    <input matInput ngModel required password maxlength="12" minlength="6" name="password1" type="password" placeholder="Enter Original Password" [(ngModel)]="pass1" #password1="ngModel">
                                      <mat-error *ngIf="password1.hasError('required')" >Enter Original Password</mat-error>
                                   </mat-form-field>
                         </div>
@@ -99,7 +99,7 @@
                             <label>New Password</label>
                             <input class="form-control" type="password" />-->
                             <mat-form-field  class="example-full-width">
-                                    <input matInput ngModel required password name="password" type="password" placeholder="Enter New Password" [(ngModel)]="pass" #password="ngModel" >
+                                    <input matInput ngModel required password maxlength="12" minlength="6" name="password" type="password" placeholder="Enter New Password" [(ngModel)]="pass" #password="ngModel" >
                                      <mat-error *ngIf="password.hasError('required')" >Enter New Password</mat-error>
                                   </mat-form-field>
                         </div>
@@ -107,7 +107,7 @@
                             <label>New Password Again</label>
                             <input class="form-control" type="password" />-->
                             <mat-form-field class="example-full-width">
-                                    <input matInput ngModel required password name="password2" type="password" placeholder="Retype Password" [(ngModel)]="pass2" #password2="ngModel">
+                                    <input matInput ngModel required password maxlength="12" minlength="6" name="password2" type="password" placeholder="Retype Password" [(ngModel)]="pass2" #password2="ngModel">
                                      <mat-error *ngIf="password2.hasError('required')" >Retype Password</mat-error>
                                   </mat-form-field>
                         </div>

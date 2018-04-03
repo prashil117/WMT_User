@@ -73,13 +73,15 @@ export class LoginComponent implements OnInit {
       }
 
   onAdd(addform){
-    
+        
         this.email_id=addform.value.email_id;
         this.password=addform.value.password;
         this.user_name=addform.value.user_name;
         this.address=addform.value.address;
         this.mobile=addform.value.mobile;
         this.bod=addform.value.bod;
+        this.gender=addform.value.gender;
+        console.log("bvdhb"+this.gender);
      //   let item=new User(this.email_id,this.password,this.user_name,this.address,this.bod,this.gender,this.user_photo,this.mobile);
      const fd=new FormData();
      fd.append('user_email_id',this.email_id);
@@ -97,6 +99,7 @@ export class LoginComponent implements OnInit {
             console.log(data);
             //this._router.navigate(['/user']);
             console.log("Yess");
+            alert("Now You Can login");
             
           }
         );

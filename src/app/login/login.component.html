@@ -55,7 +55,7 @@
                     <!-- <label>Emai</label>
                     <input class="form-control" placeholder="e.g. johndoe@gmail.com" type="text" /> -->
                     <mat-form-field class="example-full-width">
-                        <input matInput ngModel required password name="password" type="password" placeholder="Enter password" #password="ngModel">
+                        <input matInput ngModel required password name="password" maxlength="12" minlength="6" type="password" placeholder="Enter password" #password="ngModel">
                          <mat-error *ngIf="password.hasError('required')" >Enter Password</mat-error>
                       </mat-form-field>
                 </div>
@@ -63,7 +63,7 @@
                     <!-- <label>Password</label>
                     <input class="form-control" type="password" placeholder="my secret password" /> -->
                     <mat-form-field class="example-full-width">
-                        <input matInput ngModel required password name="user_name" type="text" placeholder="Enter Name" #user_name="ngModel">
+                        <input matInput ngModel required password  name="user_name" type="text" placeholder="Enter Name" #user_name="ngModel">
                          <mat-error *ngIf="user_name.hasError('required')" >Enter Name</mat-error>
                       </mat-form-field>
                 </div>
@@ -102,18 +102,27 @@
                             <mat-radio-button [(ngModel)]="gender"  name="gender1" value="male">Male</mat-radio-button>
                             <mat-radio-button [(ngModel)]="gender"  name="gender1" value="female">Female</mat-radio-button>
                           </mat-radio-group> -->
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                             <div class="col-xs-12"><input type="radio" [(ngModel)]="gender" id="gender" name="male" value="male"> Male
-                                <input type="radio" name="female" [(ngModel)]="gender" id="gender" value="female"> Female<!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
-                        </div>
+                                <input type="radio" name="female" [(ngModel)]="gender" id="gender" value="female"> Female<!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password"></div>
+                        </div> -->
+                        <mat-radio-group class="example-radio-group" #gender=ngModel ngModel name="gender" >
+                            <mat-radio-button class="example-radio-button"  value="male">
+                              Male
+                            </mat-radio-button>
+                            <mat-radio-button class="example-radio-button" value="female">
+                                Female
+                              </mat-radio-button>
+                          </mat-radio-group>
                 
                 </div>
                 <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
                     <!-- <label>Password</label>
                     <input class="form-control" type="password" placeholder="my secret password" /> -->
                     <mat-form-field class="example-full-width">
-                        <input matInput ngModel required password name="mobile" type="text" placeholder="Enter Mobile" #mobile="ngModel">
+                        <input matInput ngModel required maxlength="10" minlength="10" number name="mobile" type="text" placeholder="Enter Mobile" #mobile="ngModel">
                          <mat-error *ngIf="mobile.hasError('required')" >Enter Mobile No</mat-error>
+                         <mat-error *ngIf="mobile.hasError('mobile')" >Enter 10 Digit Number</mat-error>
                       </mat-form-field>
                 </div>
                 <input class="btn btn-primary" type="submit" [disabled]="!addform.form.valid" value="Sign up for Traveler" />
