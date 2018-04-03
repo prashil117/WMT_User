@@ -31,6 +31,7 @@ export class OrderComponent implements OnInit {
   public distance:string;
   source:string;
   email:string;
+  format:string;
   destination:string;
   checkin:string;
   checkout:string;
