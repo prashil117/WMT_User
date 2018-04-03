@@ -29,5 +29,9 @@ export class NavbarComponent implements OnInit {
   {
     this._router.navigate(['/car']);
   }
+OnSign()
+{
+  this._router.navigate(['/login']);
+}
 
 }

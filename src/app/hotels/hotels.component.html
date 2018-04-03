@@ -112,11 +112,11 @@
             </div>
             <ul class="booking-list">
                 <li>
-                    <a class="booking-item" href="#">
-                        <div class="row" *ngFor="let item of hotels">
+                    <a class="booking-item" href="#" *ngFor="let item of hotels">
+                        <div class="row" >
                             <div class="col-md-3">
                                 <div class="booking-item-img-wrap">
-                                        <img class="origin round" src="http://localhost:3000/images/hotel/{{item.hotel_img}}" alt="Image Alternative text" title="AMaze" />
+                                        <img class="origin square" src="http://localhost:3000/images/hotel/{{item.hotel_img}}" alt="Image Alternative text" title="AMaze" height="100" width="100" />
                                     <div class="booking-item-img-num"><i class="fa fa-picture-o"></i>12</div>
                                 </div>
                             </div>
@@ -138,43 +138,12 @@
                                 <h5 class="booking-item-title">{{item.hotel_name}}</h5>
                                 <p class="booking-item-address"><i class="fa fa-map-marker"></i> {{item.hotel_address}}</p><small class="booking-item-last-booked">Latest booking: 6 hours ago</small>
                             </div>
-                            <div class="col-md-3"><span class="booking-item-price-from">from</span><span class="booking-item-price">$410</span><span>/night</span><span class="btn btn-primary">Book Now</span>
+                            <div class="col-md-3"><span class="booking-item-price-from"></span><span class="booking-item-price"></span><span></span>
                             </div>
                         </div>
                     </a>
                 </li>
-                <li>
-                    <a class="booking-item" href="#">
-                        <!-- <div class="row">
-                            <div class="col-md-3">
-                                <div class="booking-item-img-wrap">
-                                    <img src="./assets/img/hotel_2_800x600.jpg" alt="Image Alternative text" title="hotel 2" />
-                                    <div class="booking-item-img-num"><i class="fa fa-picture-o"></i>11</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="booking-item-rating">
-                                    <ul class="icon-group booking-item-rating-stars">
-                                        <li><i class="fa fa-star"></i>
-                                        </li>
-                                        <li><i class="fa fa-star"></i>
-                                        </li>
-                                        <li><i class="fa fa-star"></i>
-                                        </li>
-                                        <li><i class="fa fa-star"></i>
-                                        </li>
-                                        <li><i class="fa fa-star"></i>
-                                        </li>
-                                    </ul><span class="booking-item-rating-number"><b >4.7</b> of 5</span><small>(250 reviews)</small>
-                                </div>
-                                <h5 class="booking-item-title">New York Hilton Midtown</h5>
-                                <p class="booking-item-address"><i class="fa fa-map-marker"></i> East Elmhurst, NY (LaGuardia Airport (LGA))</p><small class="booking-item-last-booked">Latest booking: 6 hours ago</small>
-                            </div>
-                            <div class="col-md-3"><span class="booking-item-price-from">from</span><span class="booking-item-price">$158</span><span>/night</span><span class="btn btn-primary">Book Now</span>
-                            </div>
-                        </div> -->
-                    </a>
-                </li>
+                
                 <!-- <li>
                     <a class="booking-item" href="#">
                         <div class="row" *ngFor="let item of hotels ">
@@ -593,34 +562,9 @@
                 </li> -->
             </ul>
             <div class="row" *ngFor="let item of hotels">
-                <div class="col-md-6">
-                    <p><small>{{item.hotel_name}} &nbsp;&nbsp;Showing 1 – 15</small>
-                    </p>
-                    <ul class="pagination">
-                        <li class="active"><a href="#">1</a>
-                        </li>
-                        <li><a href="#">2</a>
-                        </li>
-                        <li><a href="#">3</a>
-                        </li>
-                        <li><a href="#">4</a>
-                        </li>
-                        <li><a href="#">5</a>
-                        </li>
-                        <li><a href="#">6</a>
-                        </li>
-                        <li><a href="#">7</a>
-                        </li>
-                        <li class="dots">...</li>
-                        <li><a href="#">43</a>
-                        </li>
-                        <li class="next"><a href="#">Next Page</a>
-                        </li>
-                    </ul>
-                </div>
+               
                 <div class="col-md-6 text-right">
-                    <p>Not what you're looking for? <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Try your search again</a>
-                    </p>
+                   
                 </div>
             </div>
         </div>

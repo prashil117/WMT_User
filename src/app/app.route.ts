@@ -19,7 +19,7 @@ import { ViewHotelComponent } from './view-hotel/view-hotel.component';
 
 
 const routing:Routes = [
-    {path: '',redirectTo:'/home',pathMatch:'full'},
+    {path: '',redirectTo:'/login',pathMatch:'full'},
     {path:'login',component:LoginComponent},
     {path:'car',component:CarComponent},
     {path:'car_detail',component:CarDetailComponent},
