@@ -16,6 +16,16 @@ import { Traveler } from '../traveler/travelerc';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
+  public car_name:string;
+  public car_color:string;
+  public car_type:string;
+  public car_img:string;
+  public car_rate:any;
+  public car_details:string;
+  public car_category:string;
+  public fk_traveller_id:number;
+  public car_status:string;
+
   public _subscription:Subscription;
   public id:number;
   public cname:string="";
@@ -46,7 +56,7 @@ export class OrderComponent implements OnInit {
   public msg:string="";
   public msg1:string="";
   public t:string;
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datau:UserService,public datat:TravelerService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datau:UserService,public datat:TravelerService,public datac:CarService) { }
 
   ngOnInit() {
     
@@ -79,7 +89,7 @@ export class OrderComponent implements OnInit {
   );
 
  
-  let item = new Car(null,this.cname,'','','',null,'','',this.id);
+  let item = new Car(null,this.cname,'','','',null,'','',this.id,'');
   this._data.order(item).subscribe(
     (data:Car[])=>{
       console.log(this.id);
@@ -128,7 +138,8 @@ export class OrderComponent implements OnInit {
   onAdd()
   {
     let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,this.finalrate,this.cid,this.cname,null,this.id,"");
-    this.msg="Destination:---------- "+"    "+this.destination+"    "+"Current Date:----- "+"     "+this.currentDate+"     "+"Checkin :------------"+"    " +this.checkin+"    "+"Checkout :-----------"+"    "+this.checkout+"    "+"Traveller :-----------"+"    "+this.t+"    "+"Car :-----------"+"   "+this.cname+"    "+"Km :----"+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
+    this.format="<html><table><tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr></table></html>"
+    this.msg=this.format+"Destination:---------- "+"    "+this.destination+"    "+"Current Date:----- "+"     "+this.currentDate+"     "+"Checkin :------------"+"    " +this.checkin+"    "+"Checkout :-----------"+"    "+this.checkout+"    "+"Traveller :-----------"+"    "+this.t+"    "+"Car :-----------"+"   "+this.cname+"    "+"Km :----"+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
     this.msg1="Destination:---------"+this.destination+"Current Date:--------- "+this.currentDate+"Checkin --------:"+this.checkin+"Checkout :-----------"+this.checkout+"User :----------"+this.uname+"User Email :-----------"+this.email+"User No :--------"+this.uno+"Car :-------"+this.cname+"Km :----------"+this.km;
     this._data.Onorder(item).subscribe(
       
@@ -152,6 +163,37 @@ export class OrderComponent implements OnInit {
       console.log("Msg sent");
        this._router.navigate(['/pay_success']);
      })
+
+    //  this.datac.getCarById(this.cid).subscribe(
+    //   (data:any)=>{
+    //     this.car_name=data[0].car_name;
+    //     this.car_color=data[0].car_color;
+    //     this.car_type=data[0].car_type;
+    //     this.car_img=data[0].car_img;
+    //     this.car_rate=data[0].car_rate;
+    //     this.car_details=data[0].car_details;
+    //     this.car_category = data[0].car_category;
+    //     this.fk_traveller_id=data[0].fk_traveller_id;
+        
+    //     console.log(data);
+    //   }
+    // );
+
+    //  let car=new Car(this.cid,this.car_name,this.car_color,this.car_type,this.car_img,this.car_rate,this.car_details,this.car_category,this.fk_traveller_id,"0");
+    //  this.datac.editCar(this.cid, car).subscribe(
+    //    (data:Car[]) => {
+    //      console.log(data);
+    //      this._router.navigate(['/Car']);
+    //    }
+    //  );
+    this.datac.changecar(this.cid).subscribe(
+          (data:any) => {
+            console.log(data);
+           // this._router.navigate(['/Car']);
+          }
+        );
+    
+
     }
   
 

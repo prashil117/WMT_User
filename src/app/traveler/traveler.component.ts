@@ -28,7 +28,7 @@ export class TravelerComponent implements OnInit {
   );
 
   this._data.getTravellerByName(this.name).subscribe(
-    (data:any)=>{
+    (data:Traveler[])=>{
       this.tname=data[0].traveller_name;
       this.traveler=data;
    /*   this.rate=data[0].car_rate;
