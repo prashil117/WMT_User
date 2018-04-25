@@ -182,7 +182,7 @@ export class OrderComponent implements OnInit {
     //  let car=new Car(this.cid,this.car_name,this.car_color,this.car_type,this.car_img,this.car_rate,this.car_details,this.car_category,this.fk_traveller_id,"0");
     //  this.datac.editCar(this.cid, car).subscribe(
     //    (data:Car[]) => {
-    //      console.log(data);
+    //      console.log(data);fgh
     //      this._router.navigate(['/Car']);
     //    }
     //  );
