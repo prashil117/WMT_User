@@ -4,6 +4,8 @@ import { MapsAPILoader } from "@agm/core";
 import { } from "@types/googlemaps";
 import { map } from './mapc';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +17,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('search1', ) public searchElements: ElementRef;
 
 
-
+ 
   public map: map;
   distance: string = null;
   origin: string = null;
@@ -66,7 +68,12 @@ export class HomeComponent implements OnInit {
     console.log(this.d2);
     localStorage.setItem('Checkin', this.d1);
     localStorage.setItem('Checkout', this.d2);
-
+    
+    
+    var a = moment(this.d1, 'DD/MM/YYYY');
+    var b = moment(this.d2, 'DD/MM/YYYY');
+    var days = b.diff(a, 'days');
+      console.log(days);
     this.data.getDistance(this.x, this.y).subscribe(
       (data: map) => {
         this.map = data;
