@@ -25,12 +25,17 @@ export class HotelsComponent implements OnInit {
     console.log(this.destination);
 
 
-    this._data.getHotelByCity(this.destination).subscribe(
+   
+
+  }
+
+  searchImages(hotel_name)
+  {
+    this._data.getHotelByCity(this.hotel_name.toLowerCase()).subscribe(
       (data:any)=>{
         this.hotels=data;
       }
     );
-
   }
 
 }

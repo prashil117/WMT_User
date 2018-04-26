@@ -10953,3 +10953,6 @@ img.mfp-img {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
+.bgimg{
+  background-image: "../../assets/img/people_on_the_beach_1280x852.jpg";
+}
