@@ -56,6 +56,7 @@ export class OrderComponent implements OnInit {
   public msg:string="";
   public msg1:string="";
   public t:string;
+  days:any;
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datau:UserService,public datat:TravelerService,public datac:CarService) { }
 
   ngOnInit() {
@@ -107,10 +108,11 @@ export class OrderComponent implements OnInit {
       console.log(this.km);
       this.checkin=localStorage.getItem('Checkin');
       this.checkout=localStorage.getItem('Checkout');
+      this.days=localStorage.getItem('days');
       this.date=new Date();
       this.currentDate=this.date.getDate().toString();
       if (this.km>300) {
-        this.ans=this.km*this.rate;
+        this.ans=(this.km*this.days)*this.rate;
         this.final=(this.ans+this.driverallow);
         this.gst=(this.final*5)/100;
         this.finalrate=this.final+this.gst;
@@ -121,7 +123,7 @@ export class OrderComponent implements OnInit {
       
       else {
         
-        this.ans=this.rate*300;
+        this.ans=(this.rate*300)*this.days;
         this.final=(this.ans+this.driverallow);
         this.gst=(this.final*5)/100;
         this.finalrate=this.final+this.gst;

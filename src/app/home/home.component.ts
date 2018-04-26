@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   y: string;
   d1: string = "";
   d2: string = "";
+  days:any;
   constructor(private mapsApiLoader: MapsAPILoader, public data: MapService, private ngZone: NgZone, public _router: Router) { }
 
   ngOnInit() {
@@ -72,8 +73,11 @@ export class HomeComponent implements OnInit {
     
     var a = moment(this.d1, 'DD/MM/YYYY');
     var b = moment(this.d2, 'DD/MM/YYYY');
-    var days = b.diff(a, 'days');
-      console.log(days);
+    this.days = b.diff(a, 'days');
+      console.log(this.days);
+
+
+      localStorage.setItem('days',this.days);
     this.data.getDistance(this.x, this.y).subscribe(
       (data: map) => {
         this.map = data;
