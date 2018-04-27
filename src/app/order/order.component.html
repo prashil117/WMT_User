@@ -38,7 +38,7 @@
                          
                         </header>
                         <ul class="booking-item-payment-details">
-                            <li>
+                            <!-- <li>
                                 <h5>Booking Details</h5>
                                 <div class="booking-item-payment-date">
                                     <p class="booking-item-payment-date-day">April, 26</p>
@@ -48,7 +48,7 @@
                                     <p class="booking-item-payment-date-day">May, 3</p>
                                     <p class="booking-item-payment-date-weekday">Saturday</p>
                                 </div>
-                            </li>
+                            </li> -->
                             <li>
                               <b>  <h3>BILL DETAILS</h3> </b>
                                 <ul class="booking-item-payment-price">
@@ -88,10 +88,18 @@
                 </div>
                 
             </div>
-            <div class="gap"></div>
+            <div class="gap"><div class="parent">
+                <div class="left">
+                    
+                </div>
+                <div class="center">
+                    <input class="btn btn-primary" (click)="onAdd()" routerLink="/pay_success" type="submit" value="Proceed Payment" />
+                </div>
+                <div style="clear:both;"></div>
+            </div></div>
         </div>
         
-        <input class="btn btn-primary" (click)="onAdd()" routerLink="/pay_success" type="submit" value="Proceed Payment" />
+        
 
 
         <footer id="main-footer">
