@@ -36,6 +36,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ForgotService } from './forgot/forgot.service';
 import { UserorderComponent } from './userorder/userorder.component';
+import { NgProgressModule } from 'ngx-progressbar';
 
 const googleMapsParams = {
   apiKey: 'AIzaSyAx2FpIpogwOcsBCnz9xhGBVF97hJm9XFA',
@@ -72,6 +73,7 @@ const googleMapsParams = {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgProgressModule,
     FormsModule,MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

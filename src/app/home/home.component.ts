@@ -5,6 +5,7 @@ import { } from "@types/googlemaps";
 import { map } from './mapc';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-home',
@@ -27,10 +28,14 @@ export class HomeComponent implements OnInit {
   city: string = '';
   x: string;
   y: string;
+  x1:string="";
+  y1:string="";
+  d11:string="";
+  d21:string="";
   d1: string = "";
   d2: string = "";
   days:any;
-  constructor(private mapsApiLoader: MapsAPILoader, public data: MapService, private ngZone: NgZone, public _router: Router) { }
+  constructor(public router:Router,private mapsApiLoader: MapsAPILoader, public data: MapService, private ngZone: NgZone, public _router: Router,public ngProgress: NgProgress) { }
 
   ngOnInit() {
 
@@ -63,8 +68,11 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  getkm() {
-
+  getkm(addform) {
+    this.x=addform.value.x1;
+    this.y=addform.value.y1;
+    console.log(this.x);
+    console.log(this.y);
     console.log(this.d1);
     console.log(this.d2);
     localStorage.setItem('Checkin', this.d1);
@@ -78,30 +86,33 @@ export class HomeComponent implements OnInit {
 
 
       localStorage.setItem('days',this.days);
-    this.data.getDistance(this.x, this.y).subscribe(
-      (data: map) => {
-        this.map = data;
-        this.distance = this.map.distance;
+      this.ngProgress.start();
+     this.data.getDistance(this.x, this.y).subscribe(
+       (data: map) => {
+         this.map = data;
+         this.distance = this.map.distance;
 
-        this.origin = this.map.origin;
-        this.destination = this.map.destination;
-        this.duration = this.map.duration;
-        this.distance1 = this.distance.slice(0, this.distance.indexOf(' '));
-        localStorage.setItem('distance', this.distance1);
-        console.log(this.distance1);
-        localStorage.setItem('source', this.x);
-        localStorage.setItem('destination', this.y);
-        console.log(data);
-        console.log(this.distance);
+         this.origin = this.map.origin;
+         this.destination = this.map.destination;
+         this.duration = this.map.duration;
+         this.distance1 = this.distance.slice(0, this.distance.indexOf(' '));
+         localStorage.setItem('distance', this.distance1);
+         console.log(this.distance1);
+         localStorage.setItem('source', this.x);
+         localStorage.setItem('destination', this.y);
+         console.log(data);
+         console.log(this.distance);
+         this.ngProgress.done();
+         this.router.navigate(['/car']);
 
-      },
-      function (err) {
+       },
+       function (err) {
         alert(err);
-      },
+       },
       function () {
 
-      }
-    );
+       }
+     );
   }
 
   viewHotel() {

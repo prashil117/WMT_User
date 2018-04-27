@@ -114,8 +114,8 @@
                 <!-- <label>Password</label>
                 <input class="form-control" type="password" placeholder="my secret password" /> -->
                 <mat-form-field class="example-full-width">
-                    <input matInput [(ngModel)]="hotel_name" required name="hotel_name" type="text" placeholder="Image Search" #imagesrch="ngModel">
-                    <mat-error *ngIf="imagesrch.hasError('hotel_name')">Enter Image</mat-error>
+                    <input matInput [(ngModel)]="hotel_name" required name="hotel_name" type="text" placeholder="Hotel Search" #imagesrch="ngModel">
+                    <mat-error *ngIf="imagesrch.hasError('hotel_name')">Enter Hotel Name</mat-error>
                 </mat-form-field>
                 <button (click)="searchImages(hotel_name)">find new</button>
             </div>
