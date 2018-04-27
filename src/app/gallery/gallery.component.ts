@@ -10,6 +10,7 @@ export class GalleryComponent implements OnInit {
 images:any[];
 imagesFound:boolean=false;
 searching:boolean=false;
+searchQuery1:string;
 
 handleSucess(data)
 {

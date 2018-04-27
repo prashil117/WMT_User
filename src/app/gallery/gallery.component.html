@@ -6,10 +6,10 @@
         <!-- <label>Password</label>
         <input class="form-control" type="password" placeholder="my secret password" /> -->
         <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="searchQuery" required name="imagesrch" type="text" placeholder="Image Search" #imagesrch="ngModel">
-            <mat-error *ngIf="imagesrch.hasError('searchQuery')">Enter Image</mat-error>
+            <input matInput [(ngModel)]="searchQuery1" required name="imagesrch" type="text" placeholder="Image Search" #imagesrch="ngModel">
+            <mat-error *ngIf="imagesrch.hasError('searchQuery1')">Enter Image</mat-error>
         </mat-form-field>
-        <button (click)="searchImages(searchQuery)">find new</button>
+        <button (click)="searchImages(searchQuery1)">find new</button>
     </div>
 </div>
 

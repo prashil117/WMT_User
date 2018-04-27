@@ -1,0 +1,13 @@
+{
+    "name": "Wish My Trip",
+    "short_name": "WMT",
+    "icons": [
+        {
+            "src": "assets/img/finalLogo.jpg",
+            "sizes": "192x192",
+            "type": "image\/png"
+        }
+    ],
+    "display": "standalone",
+    "start_url": "./?utm_source=web_app_manifest"
+}
