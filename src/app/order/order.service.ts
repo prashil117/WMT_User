@@ -5,10 +5,10 @@ import {  order} from './orderc';
 
 @Injectable()
 export class OrderService {
-  public url: string = "http://localhost:3000/order/";
-  public url1: string = "http://localhost:3000/orderbill/";
+  public url: string = "https://wishmytrip.herokuapp.com/order/";
+  public url1: string = "https://wishmytrip.herokuapp.com/orderbill/";
   public url2: string = "http://localhost:3000/email/";
-  public url3:string="http://localhost:3000/userorder/";
+  public url3:string="https://wishmytrip.herokuapp.com/userorder/";
   constructor(public _http: HttpClient) { }
 
   content: string = "Content-Type";

@@ -4,8 +4,8 @@ import { Traveler } from './travelerc';
 
 @Injectable()
 export class TravelerService {
-  public url: string = "http://localhost:3000/travellerlist/";
-  public url1: string = "http://localhost:3000/travellers/";
+  public url: string = "https://wishmytrip.herokuapp.com/travellerlist/";
+  public url1: string = "https://wishmytrip.herokuapp.com/travellers/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";

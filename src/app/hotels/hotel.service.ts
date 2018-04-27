@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class HotelService {
-  public url="http://localhost:3000/hotelcity/";
+  public url="https://wishmytrip.herokuapp.com/hotelcity/";
 
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";

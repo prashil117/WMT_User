@@ -5,7 +5,7 @@ import { map } from "./mapc";
 export class MapService {
 
   constructor(public _http: HttpClient) { }
-  url:string="http://localhost:3000/maps/";
+  url:string="https://wishmytrip.herokuapp.com/maps/";
   
   getDistance(x,y){
     return this._http.get(this.url+x+"&"+y);

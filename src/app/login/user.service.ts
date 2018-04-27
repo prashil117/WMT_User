@@ -5,11 +5,11 @@ import { User } from './userc';
 @Injectable()
 export class UserService {
 
-  public url: string = "http://localhost:3000/users/";
-  public url1:string="http://localhost:3000/login/";
-  public url2: string = "http://localhost:3000/uemail/";
-  public url3:string="http://localhost:3000/userpassword/";
-  public url4: string = "http://localhost:3000/userimgu/";
+  public url: string = "https://wishmytrip.herokuapp.com/users/";
+  public url1:string="https://wishmytrip.herokuapp.com/login/";
+  public url2: string = "https://wishmytrip.herokuapp.com/uemail/";
+  public url3:string="https://wishmytrip.herokuapp.com/userpassword/";
+  public url4: string = "https://wishmytrip.herokuapp.com/userimgu/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";

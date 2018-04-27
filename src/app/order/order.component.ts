@@ -77,7 +77,7 @@ export class OrderComponent implements OnInit {
     (data5:Traveler[])=>{ 
       this.t=data5[0].traveller_name;
       this.temail=data5[0].traveller_email;
-      console.log(this.t);
+      console.log(this.temail);
     }
   );
 

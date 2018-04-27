@@ -5,9 +5,9 @@ import { Car } from './carc';
 @Injectable()
 export class CarService {
 
-  public url: string = "http://localhost:3000/carlist/";
-  public url1: string = "http://localhost:3000/cars/";
-  public url2:string="http://localhost:3000/carstatus/";
+  public url: string = "https://wishmytrip.herokuapp.com/carlist/";
+  public url1: string = "https://wishmytrip.herokuapp.com/cars/";
+  public url2:string="https://wishmytrip.herokuapp.com/carstatus/";
   
 
   constructor(public _http: HttpClient) { }
