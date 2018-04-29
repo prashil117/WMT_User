@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { User } from '../login/userc';
 import { UserService } from "../login/user.service";
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-user-profile',
@@ -28,7 +29,7 @@ export class UserProfileComponent implements OnInit {
   password:string;
   
 
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:UserService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:UserService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
     this._subscription=this._activatedRoute.params.subscribe(
@@ -76,11 +77,13 @@ export class UserProfileComponent implements OnInit {
         alert("Changes Saved");
       }
     );*/
+    this.ngProgress.start();
     if (this.selectedFile == null) {
       let user=new User(this.email,'',this.name1,this.address1,this.bod1,this.gender,this.img,this.mobile1);
       this._data.editUser(this.email, user).subscribe(
         () => {
           this._router.navigate(['/user']);
+          this.ngProgress.done();
         }
       );
     }
@@ -101,12 +104,14 @@ export class UserProfileComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this._router.navigate(['/user']);
+          this.ngProgress.done();
         }
       );
     }
   }
 
   Changepassword(){
+    this.ngProgress.start();
     if(this.pass1==this.password)
     {
       if(this.pass==this.pass2)
@@ -117,12 +122,14 @@ export class UserProfileComponent implements OnInit {
         //this._router.navigate(['/Edittraveller']);
         console.log("Yess");
         alert("Password Changed");
+        this.ngProgress.done();
       }
     );
   }
 }
   else
   {
+    this.ngProgress.done();
     alert("Please enter valid password");
   }
 }

@@ -8,6 +8,7 @@
                 <label>Where are you going?</label>
                 <input class="typeahead form-control" placeholder="City, Airport, Point of Interest, Hotel Name or U.S. Zip Code" type="text" />
             </div>
+            <ng-progress></ng-progress>
             <div class="input-daterange" data-date-format="M d, D">
                 <div class="row">
                     <div class="col-md-3">
@@ -117,7 +118,7 @@
                     <input matInput [(ngModel)]="hotel_name" required name="hotel_name" type="text" placeholder="Hotel Search" #imagesrch="ngModel">
                     <mat-error *ngIf="imagesrch.hasError('hotel_name')">Enter Hotel Name</mat-error>
                 </mat-form-field>
-                <button (click)="searchImages(hotel_name)">find new</button>
+                <button (click)="searchImages(hotel_name)">Search</button>
             </div>
             <ul class="booking-list">
                 <li>
@@ -126,7 +127,7 @@
                             <div class="col-md-3">
                                 <div class="booking-item-img-wrap">
                                         <img class="origin square" src="https://wishmytrip.herokuapp.com/images/hotel/{{item.hotel_img}}" alt="Image Alternative text" title="AMaze" height="100" width="100" />
-                                    <div class="booking-item-img-num"><i class="fa fa-picture-o"></i>12</div>
+                                    <!-- <div class="booking-item-img-num"><i class="fa fa-picture-o"></i>12</div> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -136,10 +137,10 @@
                                             
                                         </li>
                                       
-                                    </ul><span class="booking-item-rating-number"><b >{{item.hotel_rating}}</b> of 5</span><small>(308 reviews)</small>
+                                    </ul><span class="booking-item-rating-number"><b >{{item.hotel_rating}}</b> of 5</span>
                                 </div>
                                 <h5 class="booking-item-title">{{item.hotel_name}}</h5>
-                                <p class="booking-item-address"><i class="fa fa-map-marker"></i> {{item.hotel_address}}</p><small class="booking-item-last-booked">Latest booking: 6 hours ago</small>
+                                <p class="booking-item-address"><i class="fa fa-map-marker"></i> {{item.hotel_address}}</p><!--<small class="booking-item-last-booked">Latest booking: 6 hours ago</small>-->
                             </div>
                             <div class="col-md-3"><span class="booking-item-price-from"></span><span class="booking-item-price"></span><span></span>
                             </div>

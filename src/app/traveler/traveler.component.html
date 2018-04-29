@@ -49,7 +49,7 @@
             <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
         </form>
     </div>
-    <h3 class="booking-title">105 Rental Cars in New York on Mar 22 - Mar 27<small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out" (click)="Onchange()">Change search</a></small></h3>
+    <!-- <h3 class="booking-title">105 Rental Cars in New York on Mar 22 - Mar 27<small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out" (click)="Onchange()">Change search</a></small></h3>
     <div class="booking-item-dates-change mb30">
         <form class="input-daterange" data-date-format="MM d, D">
             <div class="row">
@@ -99,13 +99,13 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-md-3">
           
         </div>
         <div class="col-md-12">
-           
+            <ng-progress></ng-progress>
             <ul class="booking-list">
                 <li *ngFor="let item of traveler">
                     <a class="booking-item">

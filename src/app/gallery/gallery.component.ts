@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from './image.service';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-gallery',
@@ -23,10 +24,12 @@ handleError(error)
 {
   console.log(error);
 }
-  constructor(private _imgservice:ImageService) { }
+  constructor(private _imgservice:ImageService,public ngProgress: NgProgress) { }
 
   searchImages(query:string){
+    this.ngProgress.start();
     this.searching=true
+    this.ngProgress.done();
    return this._imgservice.getImage(query).subscribe(
      data =>this.handleSucess(data),
      error=>this.handleError(error),

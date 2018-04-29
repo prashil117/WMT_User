@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from './loginc';
 import {FormControl} from "@angular/forms";
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-login',
@@ -29,13 +30,13 @@ export class LoginComponent implements OnInit {
   public debug_size_before:string[]=[];
   public debug_size_after:string[]=[];
   selectedFile:File=null;
-  constructor(public _router:Router, public _data:UserService,public changeDetectorRef:ChangeDetectorRef) { }
+  constructor(public _router:Router, public _data:UserService,public changeDetectorRef:ChangeDetectorRef,public ngProgress: NgProgress) { }
 
   ngOnInit() {
   }
 
   onLogin(login) {
-    
+    this.ngProgress.start();
     this.email_i=login.value.email_i;
     this.pass=login.value.pass;
     console.log(this.email_i); 
@@ -48,15 +49,18 @@ export class LoginComponent implements OnInit {
            localStorage.setItem('Email',this.email_i);
          this._router.navigate(['/home']);
         console.log("yess");
+        this.ngProgress.done();
         }
         else {
           if (this.email_i.length==1) {
               if( this.pass.length!=1)
               {
             alert("password is wrong");
+            this.ngProgress.done();
               }
         }else{
               alert("Incorrect Email and Password");   
+              this.ngProgress.done();
         }
       }
     },
@@ -73,7 +77,7 @@ export class LoginComponent implements OnInit {
       }
 
   onAdd(addform){
-        
+        this.ngProgress.start();
         this.email_id=addform.value.email_id;
         this.password=addform.value.password;
         this.user_name=addform.value.user_name;
@@ -99,6 +103,7 @@ export class LoginComponent implements OnInit {
             console.log(data);
             //this._router.navigate(['/user']);
             console.log("Yess");
+            this.ngProgress.done();
             alert("Now You Can login");
             
           }

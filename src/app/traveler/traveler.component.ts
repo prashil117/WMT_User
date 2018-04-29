@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Rx';
 import { TravelerService } from './traveler.service';
 import { Traveler } from './travelerc';
 import { Car } from '../car/carc';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-traveler',
@@ -17,7 +18,7 @@ export class TravelerComponent implements OnInit {
   rate:number;
   img:string="";
   traveler:Traveler[]=[];
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravelerService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravelerService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
     this._subscription=this._activatedRoute.params.subscribe(
@@ -42,8 +43,10 @@ export class TravelerComponent implements OnInit {
    // alert(this.name);
    // alert(item.traveller_id);
    //console.log("hbcdj"+item.traveller_id);
+   this.ngProgress.start();
    localStorage.setItem('tid',item.traveller_id);
    this._router.navigate(['/order',item.fk_traveller_id]);
+   this.ngProgress.done();
   }
 
   Onchange()

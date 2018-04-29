@@ -9,13 +9,13 @@
             <input matInput [(ngModel)]="searchQuery1" required name="imagesrch" type="text" placeholder="Image Search" #imagesrch="ngModel">
             <mat-error *ngIf="imagesrch.hasError('searchQuery1')">Enter Image</mat-error>
         </mat-form-field>
-        <button (click)="searchImages(searchQuery1)">find new</button>
+        <button (click)="searchImages(searchQuery1)">Search</button>
     </div>
 </div>
+<ng-progress></ng-progress>
 
 
-
-<p *ngIf="searching">Fetching Data...</p>
+<!-- <p *ngIf="searching">Fetching Data...</p> -->
 <div class="container">
     <div id="popup-gallery">
         <div class="row row-col-gap">
@@ -90,6 +90,4 @@
         </div>
     </div>
 </div>
-<app-footer></app-footer>
-<app-footer></app-footer>
 <app-footer></app-footer>

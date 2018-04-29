@@ -5,7 +5,7 @@ import { order } from '../order/orderc';
 import { OrderService } from '../order/order.service';
 import { User } from '../login/userc';
 import { UserService } from "../login/user.service";
-
+import { NgProgress } from 'ngx-progressbar';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
 @Component({
@@ -24,7 +24,7 @@ export class UserorderComponent implements OnInit {
   order:order[]=[];
   displayedColumns = ['source','destination', 'Booking_date','checking_date','checkout_date','amount','car_id','car_name'];
   dataSource: MatTableDataSource<order>;
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public data:UserService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public data:UserService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
     this._subscription=this._activatedRoute.params.subscribe(

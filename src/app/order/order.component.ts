@@ -10,6 +10,8 @@ import { Email } from './emailc';
 import { CarService } from '../car/car.service';
 import { TravelerService } from '../traveler/traveler.service';
 import { Traveler } from '../traveler/travelerc';
+import { NgProgress } from 'ngx-progressbar';
+import * as moment from 'moment';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -46,7 +48,7 @@ export class OrderComponent implements OnInit {
   checkin:string;
   checkout:string;
   date:Date;
-  currentDate:string;
+  currentDate:any=moment().toDate();
   email_bill:string;
   temail:string;
   tid:string;
@@ -56,8 +58,9 @@ export class OrderComponent implements OnInit {
   public msg:string="";
   public msg1:string="";
   public t:string;
+  a:any=moment().toDate();
   days:any;
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datau:UserService,public datat:TravelerService,public datac:CarService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:OrderService,public _data1:UserService,public datau:UserService,public datat:TravelerService,public datac:CarService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
     
@@ -129,7 +132,8 @@ export class OrderComponent implements OnInit {
         this.finalrate=this.final+this.gst;
         
       }
-     
+
+     console.log(this.a);
       
       
     }
@@ -139,9 +143,10 @@ export class OrderComponent implements OnInit {
   }
   onAdd()
   {
-    let item=new order (this.email,this.source,this.destination,this.currentDate,this.checkin,this.checkout,this.finalrate,this.cid,this.cname,null,this.id,"");
-    this.format="<html><table><tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr></table></html>"
-    this.msg=this.format+"Destination:---------- "+"    "+this.destination+"    "+"Current Date:----- "+"     "+this.currentDate+"     "+"Checkin :------------"+"    " +this.checkin+"    "+"Checkout :-----------"+"    "+this.checkout+"    "+"Traveller :-----------"+"    "+this.t+"    "+"Car :-----------"+"   "+this.cname+"    "+"Km :----"+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
+    this.ngProgress.start();
+    let item=new order (this.email,this.source,this.destination,this.a,this.checkin,this.checkout,this.finalrate,this.cid,this.cname,null,this.id,"");
+
+    this.msg="Destination:---------- "+"    "+this.destination+"    "+"Current Date:----- "+"     "+this.currentDate+"     "+"Checkin :------------"+"    " +this.checkin+"    "+"Checkout :-----------"+"    "+this.checkout+"    "+"Traveller :-----------"+"    "+this.t+"    "+"Car :-----------"+"   "+this.cname+"    "+"Km :----"+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
     this.msg1="Destination:---------"+this.destination+"Current Date:--------- "+this.currentDate+"Checkin --------:"+this.checkin+"Checkout :-----------"+this.checkout+"User :----------"+this.uname+"User Email :-----------"+this.email+"User No :--------"+this.uno+"Car :-------"+this.cname+"Km :----------"+this.km;
     this._data.Onorder(item).subscribe(
       
@@ -164,6 +169,7 @@ export class OrderComponent implements OnInit {
        console.log(data);
       console.log("Msg sent");
        this._router.navigate(['/pay_success']);
+       this.ngProgress.done();
      })
 
     //  this.datac.getCarById(this.cid).subscribe(

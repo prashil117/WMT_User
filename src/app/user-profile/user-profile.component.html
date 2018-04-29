@@ -20,18 +20,18 @@
                     
                 </div>
                 <ul class="list user-profile-nav">
-                    <li><a href="user-profile.html"><i class="fa fa-user"></i>Overview</a>
+                    <!-- <li><a href="user-profile.html"><i class="fa fa-user"></i>Overview</a>
                     </li>
                     <li><a href="user-profile-settings.html"><i class="fa fa-cog"></i>Settings</a>
                     </li>
                     <li><a href="user-profile-photos.html"><i class="fa fa-camera"></i>My Travel Photos</a>
-                    </li>
+                    </li> -->
                     <li><a routerLink="/userorder"><i class="fa fa-clock-o"></i>Booking History</a>
                     </li>
-                    <li><a href="user-profile-cards.html"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
+                    <!-- <li><a href="user-profile-cards.html"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
                     </li>
                     <li><a href="user-profile-wishlist.html"><i class="fa fa-heart-o"></i>Wishlist</a>
-                    </li>
+                    </li> -->
                 </ul>
             </aside>
         </div>
@@ -111,6 +111,7 @@
                                      <mat-error *ngIf="password2.hasError('required')" >Retype Password</mat-error>
                                   </mat-form-field>
                         </div>
+                        <ng-progress></ng-progress>
                         <hr />
                         <input class="btn btn-primary" type="submit" (click)="Changepassword()" value="Change Password" />
                     </form>
@@ -120,3 +121,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>
