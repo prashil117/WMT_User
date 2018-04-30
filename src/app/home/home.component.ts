@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   destination: string = null;
   duration: string = null;
   distance1: string;
+  distance2: string;
   city: string = '';
   x: string;
   y: string;
@@ -35,6 +36,8 @@ export class HomeComponent implements OnInit {
   d1: string = "";
   d2: string = "";
   days:any;
+  a:string;
+  b:string;
   constructor(public router:Router,private mapsApiLoader: MapsAPILoader, public data: MapService, private ngZone: NgZone, public _router: Router,public ngProgress: NgProgress) { }
 
   ngOnInit() {
@@ -82,7 +85,7 @@ export class HomeComponent implements OnInit {
     var a = moment(this.d1, 'DD/MM/YYYY');
     var b = moment(this.d2, 'DD/MM/YYYY');
     this.days = b.diff(a, 'days');
-      console.log(this.days);
+    
 
 
       localStorage.setItem('days',this.days);
@@ -95,9 +98,22 @@ export class HomeComponent implements OnInit {
          this.origin = this.map.origin;
          this.destination = this.map.destination;
          this.duration = this.map.duration;
-         this.distance1 = this.distance.slice(0, this.distance.indexOf(' '));
-         localStorage.setItem('distance', this.distance1);
-         console.log(this.distance1);
+      //  this.distance.replace(/,\s?/g,"");  
+      
+        this.distance1 = this.distance.slice(0, this.distance.indexOf(' '));
+        if(this.distance1.length>3)
+        {
+         this.a= this.distance.slice(0, this.distance.indexOf(','));
+         this.b=this.distance1.slice(2,this.distance.indexOf(' '));
+
+         this.distance2=this.a+this.b;
+         
+        }else
+        {
+          this.distance2 = this.distance.slice(0, this.distance.indexOf(' '));
+        }
+         localStorage.setItem('distance', this.distance2);
+         console.log(this.distance2);
          localStorage.setItem('source', this.x);
          localStorage.setItem('destination', this.y);
          console.log(data);

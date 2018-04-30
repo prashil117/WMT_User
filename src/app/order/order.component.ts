@@ -38,6 +38,7 @@ export class OrderComponent implements OnInit {
   public sgst:number;
   public km:number;
   public driverallow:number=200;
+  public da:number;
   public final:number;
   public finalrate:number;
   public distance:string;
@@ -107,16 +108,17 @@ export class OrderComponent implements OnInit {
       this.source=localStorage.getItem('source');
       this.destination=localStorage.getItem('destination');
       console.log(this.distance);
-      this.km=+this.distance;
+      this.km=parseInt(this.distance);
       console.log(this.km);
       this.checkin=localStorage.getItem('Checkin');
       this.checkout=localStorage.getItem('Checkout');
       this.days=localStorage.getItem('days');
       this.date=new Date();
       this.currentDate=this.date.getDate().toString();
+      this.da=this.driverallow*this.days;
       if (this.km>300) {
         this.ans=(this.km*this.days)*this.rate;
-        this.final=(this.ans+this.driverallow);
+        this.final=(this.ans+this.da);
         this.gst=(this.final*5)/100;
         this.finalrate=this.final+this.gst;
 
@@ -127,7 +129,7 @@ export class OrderComponent implements OnInit {
       else {
         
         this.ans=(this.rate*300)*this.days;
-        this.final=(this.ans+this.driverallow);
+        this.final=(this.ans+this.da);
         this.gst=(this.final*5)/100;
         this.finalrate=this.final+this.gst;
         
