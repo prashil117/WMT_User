@@ -105,6 +105,7 @@ export class LoginComponent implements OnInit {
             //this._router.navigate(['/user']);
             console.log("Yess");
             this.ngProgress.done();
+            this.ngOnInit();
             alert("Now You Can login");
             
           }

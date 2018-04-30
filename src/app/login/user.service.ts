@@ -10,6 +10,7 @@ export class UserService {
   public url2: string = "https://wishmytrip.herokuapp.com/uemail/";
   public url3:string="https://wishmytrip.herokuapp.com/userpassword/";
   public url4: string = "https://wishmytrip.herokuapp.com/userimgu/";
+  public urlforget:string="http://localhost:3000/email/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";
@@ -47,6 +48,13 @@ export class UserService {
       {
         let body = JSON.stringify(item);
         return this._http.put(this.url3+id, body, { headers: new HttpHeaders().set(this.content, this.header) });
+      }
+
+      forget(item)
+      {
+        let body=JSON.stringify(item);
+        
+          return this._http.post(this.urlforget,body,{headers:new HttpHeaders().set('Content-Type','application/json')});
       }
 
 }

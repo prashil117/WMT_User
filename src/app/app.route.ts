@@ -29,7 +29,7 @@ const routing:Routes = [
     {path:'payment',component:PaymentComponent},
     {path:'pay_success',component:PaySuccessComponent},
     {path:'user',component:UserProfileComponent},
-    {path:'edit_user',component:EditUserProfileComponent},
+    {path:'forget',component:EditUserProfileComponent},
     {path:'Hotels',component:HotelsComponent},
     {path:'gallery',component:GalleryComponent},
     {path:'forgot',component:ForgotComponent},
