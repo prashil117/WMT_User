@@ -37,6 +37,10 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { ForgotService } from './forgot/forgot.service';
 import { UserorderComponent } from './userorder/userorder.component';
 import { NgProgressModule } from 'ngx-progressbar';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { ChatserviceService } from "./chatbot/chatservice.service";
+import { CommonModule } from '@angular/common';
+import { HotelLocComponent } from './hotel-loc/hotel-loc.component';
 
 const googleMapsParams = {
   apiKey: 'AIzaSyAx2FpIpogwOcsBCnz9xhGBVF97hJm9XFA',
@@ -64,8 +68,8 @@ const googleMapsParams = {
     GalleryComponent,
     ForgotComponent,
     UserorderComponent,
-    
-    
+    ChatbotComponent,
+    HotelLocComponent
   ],
   imports: [
     AgmCoreModule.forRoot(googleMapsParams),
@@ -82,7 +86,7 @@ const googleMapsParams = {
     MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule,
     routingArray
   ],
-  providers: [CarService,TravelerService,OrderService,MapService,UserService,ImageService,ForgotService,HotelService],
+  providers: [CarService,TravelerService,OrderService,MapService,UserService,ImageService,ForgotService,HotelService,ChatserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
