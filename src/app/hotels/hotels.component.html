@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
-  
+
     <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
         <h3>Search for Hotel</h3>
         <form>
@@ -90,10 +90,10 @@
             <button class="btn btn-primary btn-lg" type="submit">Search for Hotels</button>
         </form>
     </div>
-    
+
     <div class="row">
         <div class="col-md-3">
-           
+
         </div>
         <div class="col-md-9">
             <div class="nav-drop booking-sort">
@@ -109,7 +109,7 @@
                     </li>
                     <li><a href="#">Number of Reviews</a>
                     </li>
-                </ul>   
+                </ul>
             </div>
             <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
                 <!-- <label>Password</label>
@@ -118,15 +118,15 @@
                     <input matInput [(ngModel)]="hotel_name" required name="hotel_name" type="text" placeholder="Hotel Search" #imagesrch="ngModel">
                     <mat-error *ngIf="imagesrch.hasError('hotel_name')">Enter Hotel Name</mat-error>
                 </mat-form-field>
-                <button (click)="searchImages(hotel_name)">Search</button>
+                <button class="btn btn-primary btn-lg" (click)="searchImages(hotel_name)">Search</button>
             </div>
             <ul class="booking-list">
                 <li>
                     <a class="booking-item" href="#" *ngFor="let item of hotels">
-                        <div class="row" >
+                        <div class="row">
                             <div class="col-md-3">
                                 <div class="booking-item-img-wrap">
-                                        <img class="origin square" src="https://wishmytrip.herokuapp.com/images/hotel/{{item.hotel_img}}" alt="Image Alternative text" title="AMaze" height="100" width="100" />
+                                    <img class="origin square" src="https://wishmytrip.herokuapp.com/images/hotel/{{item.hotel_img}}" alt="Image Alternative text" title="AMaze" height="100" width="100" />
                                     <!-- <div class="booking-item-img-num"><i class="fa fa-picture-o"></i>12</div> -->
                                 </div>
                             </div>
@@ -134,20 +134,21 @@
                                 <div class="booking-item-rating">
                                     <ul class="icon-group booking-item-rating-stars">
                                         <li>Rating
-                                            
+
                                         </li>
-                                      
+
                                     </ul><span class="booking-item-rating-number"><b >{{item.hotel_rating}}</b> of 5</span>
                                 </div>
                                 <h5 class="booking-item-title">{{item.hotel_name}}</h5>
-                                <p class="booking-item-address"><i class="fa fa-map-marker"></i> {{item.hotel_address}}</p><!--<small class="booking-item-last-booked">Latest booking: 6 hours ago</small>-->
+                                <p class="booking-item-address"><i class="fa fa-map-marker"></i> {{item.hotel_address}}</p>
+                                <!--<small class="booking-item-last-booked">Latest booking: 6 hours ago</small>-->
                             </div>
                             <div class="col-md-3"><span class="booking-item-price-from"></span><span class="booking-item-price"></span><span></span>
                             </div>
                         </div>
                     </a>
                 </li>
-                
+
                 <!-- <li>
                     <a class="booking-item" href="#">
                         <div class="row" *ngFor="let item of hotels ">
@@ -566,9 +567,9 @@
                 </li> -->
             </ul>
             <div class="row" *ngFor="let item of hotels">
-               
+
                 <div class="col-md-6 text-right">
-                   
+
                 </div>
             </div>
         </div>

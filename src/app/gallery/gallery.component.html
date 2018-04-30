@@ -9,7 +9,7 @@
             <input matInput [(ngModel)]="searchQuery1" required name="imagesrch" type="text" placeholder="Image Search" #imagesrch="ngModel">
             <mat-error *ngIf="imagesrch.hasError('searchQuery1')">Enter Image</mat-error>
         </mat-form-field>
-        <button (click)="searchImages(searchQuery1)">Search</button>
+        <button class="btn btn-primary btn-lg" (click)="searchImages(searchQuery1)">Search</button>
     </div>
 </div>
 <ng-progress></ng-progress>
