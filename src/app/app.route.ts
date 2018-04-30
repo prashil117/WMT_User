@@ -15,7 +15,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { UserorderComponent } from './userorder/userorder.component';
 import { ViewHotelComponent } from './view-hotel/view-hotel.component';
-
+import { ChatbotComponent } from "./chatbot/chatbot.component";
 
 
 const routing:Routes = [
@@ -35,5 +35,6 @@ const routing:Routes = [
     {path:'forgot',component:ForgotComponent},
     {path:'userorder',component:UserorderComponent},
     {path:'viewhotel',component:ViewHotelComponent},
+    {path:'bot',component:ChatbotComponent}
   ];
   export const routingArray=RouterModule.forRoot(routing);
