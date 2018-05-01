@@ -5,6 +5,7 @@ import { TravelerService } from './traveler.service';
 import { Traveler } from './travelerc';
 import { Car } from '../car/carc';
 import { NgProgress } from 'ngx-progressbar';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-traveler',

@@ -12,6 +12,7 @@ import { TravelerService } from '../traveler/traveler.service';
 import { Traveler } from '../traveler/travelerc';
 import { NgProgress } from 'ngx-progressbar';
 import * as moment from 'moment';
+import { CurrencyPipe } from '@angular/common';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',

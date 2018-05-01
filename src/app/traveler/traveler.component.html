@@ -102,7 +102,7 @@
     </div> -->
     <div class="row">
         <div class="col-md-3">
-          
+
         </div>
         <div class="col-md-12">
             <ng-progress></ng-progress>
@@ -119,10 +119,10 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        
+
                                         <ul class="booking-item-features booking-item-features-small clearfix">
-                                          <b> <h2>Traveller<br>{{item.traveller_name}}</h2> </b> 
-                                          
+                                            <b> <h2>Traveller<br>{{item.traveller_name}}</h2> </b>
+
                                         </ul>
                                     </div>
                                     <div class="col-md-4">
@@ -135,7 +135,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3"><span class="booking-item-price">{{item.car_rate}}</span><span>/KM</span>
+                            <div class="col-md-3"><span class="booking-item-price">{{item.car_rate | currency:'INR'}}</span><span>/KM</span>
                                 <p class="booking-item-flight-class"></p><span class="btn btn-primary" (click)="select(item)">Select</span>
                             </div>
                         </div>
@@ -860,10 +860,11 @@
             </ul>
             <div class="row">
                 <div class="col-md-6">
-                    
+
                 </div>
                 <div class="col-md-6 text-right">
-                    <p> <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out"></a>
+                    <p>
+                        <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out"></a>
                     </p>
 
                 </div>

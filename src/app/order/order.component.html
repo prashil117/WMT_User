@@ -2,17 +2,17 @@
 <div class="gap"></div>
 
 
-        <div class="container">
-            <div class="row row-wrap">
-                <!-- <div class="col-md-4">
+<div class="container">
+    <div class="row row-wrap">
+        <!-- <div class="col-md-4">
                     <img class="pp-img" src="../assets/img/paypal.png" alt="Image Alternative text" title="Image Title" />
                     <p>Important: You will be redirected to PayPal's website to securely complete your payment.</p><a class="btn btn-primary">Checkout via Paypal</a>	
                 </div> -->
 
-                <div class="col-md-4">
-                    <form class="cc-form">
-                       
-                        <!-- <div class="clearfix">
+        <div class="col-md-4">
+            <form class="cc-form">
+
+                <!-- <div class="clearfix">
                             <div class="form-group form-group-cc-name">
                                 <label>Cardholder Name</label>
                                 <input class="form-control" type="text" />
@@ -22,23 +22,23 @@
                                 <input class="form-control" placeholder="mm/yy" type="text" />
                             </div>
                         </div> -->
-                        <div class="checkbox checkbox-small">
-                           
-                        </div>
-                     
-                    </form>
+                <div class="checkbox checkbox-small">
+
                 </div>
 
-                <div class="col-md-4">
-                    <div class="booking-item-payment">
-                        <header class="clearfix">
-                            
-                            <h1 class="booking-item-payment-title"> YOUR ORDER </h1>
-                            
-                         
-                        </header>
-                        <ul class="booking-item-payment-details">
-                            <!-- <li>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <div class="booking-item-payment">
+                <header class="clearfix">
+
+                    <h1 class="booking-item-payment-title"> YOUR ORDER </h1>
+
+
+                </header>
+                <ul class="booking-item-payment-details">
+                    <!-- <li>
                                 <h5>Booking Details</h5>
                                 <div class="booking-item-payment-date">
                                     <p class="booking-item-payment-date-day">April, 26</p>
@@ -49,60 +49,62 @@
                                     <p class="booking-item-payment-date-weekday">Saturday</p>
                                 </div>
                             </li> -->
+                    <li>
+                        <b>  <h3>BILL DETAILS</h3> </b>
+                        <ul class="booking-item-payment-price">
                             <li>
-                              <b>  <h3>BILL DETAILS</h3> </b>
-                                <ul class="booking-item-payment-price">
-                                    <li>
-                                        <p class="booking-item-payment-price-title">Rate of Car</p>
-                                        <p class="booking-item-payment-price-amount">{{rate}}<small>/per day</small>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="booking-item-payment-price-title">Total km</p>
-                                        <p class="booking-item-payment-price-amount">{{km}}<small>/per day</small>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="booking-item-payment-price-title">Driver Allowance</p>
-                                        <p class="booking-item-payment-price-amount">+{{da}}<small> For{{days}} days</small>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="booking-item-payment-price-title">Amount</p>
-                                        <p class="booking-item-payment-price-amount">{{final}}<small></small>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="booking-item-payment-price-title">GST</p>
-                                        <p class="booking-item-payment-price-amount">{{gst}}<small></small>
-                                        </p>
-                                    </li>
-                                    
-                
-                                </ul>
+                                <p class="booking-item-payment-price-title">Rate of Car</p>
+                                <p class="booking-item-payment-price-amount">{{rate |currency:'INR' }} <small>/per km</small>
+                                </p>
                             </li>
-                        </ul>
-                        <p class="booking-item-payment-total">Total Trip: <span>{{finalrate}}</span>
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="gap"><div class="parent">
-                <div class="left">
-                    
-                </div>
-                <div class="center">
-                    <input class="btn btn-primary" (click)="onAdd()" routerLink="/pay_success" type="submit" value="Proceed Payment" />
-                </div>
-                <div style="clear:both;"></div>
-            </div></div>
-        </div>
-        
-        
+                            <li>
+                                <p class="booking-item-payment-price-title">Total km</p>
+                                <p class="booking-item-payment-price-amount">{{km}} km<small></small>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="booking-item-payment-price-title">Driver Allowance</p>
+                                <p class="booking-item-payment-price-amount"> {{da |currency:'INR'}} <small> For {{days}} days</small>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="booking-item-payment-price-title">Amount</p>
+                                <p class="booking-item-payment-price-amount">{{final |currency:'INR'}}<small></small>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="booking-item-payment-price-title">GST</p>
+                                <p class="booking-item-payment-price-amount">{{gst |currency:'INR'}}<small></small>
+                                </p>
+                            </li>
 
-        <ng-progress></ng-progress>
-        <!-- <footer id="main-footer">
+
+                        </ul>
+                    </li>
+                </ul>
+                <p class="booking-item-payment-total">Total Trip: <span>{{finalrate |currency:'INR'}}</span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="gap">
+        <div class="parent">
+            <div class="left">
+
+            </div>
+            <div class="center">
+                <input class="btn btn-primary" (click)="onAdd()" routerLink="/pay_success" type="submit" value="Proceed Payment" />
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-progress></ng-progress>
+<!-- <footer id="main-footer">
             <div class="container">
                 <div class="row row-wrap">
                     <div class="col-md-3">
@@ -169,5 +171,5 @@
                 </div>
             </div>
         </footer> -->
-  
-    <app-footer></app-footer>
+
+<app-footer></app-footer>
