@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1 class="page-title">Account Settings</h1>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <aside class="user-profile-sidebar">
+                <div class="user-profile-avatar text-center">
+                    <img src="https://wishmytrip.herokuapp.com/images/user/{{img}}" alt="Image Alternative text" title="AMaze" />
+                    <h5>{{name1}}</h5>
+                </div>
+                <ul class="list user-profile-nav">
+                    <!-- <li><a href="user-profile.html"><i class="fa fa-user"></i>Overview</a>
+                    </li>
+                    <li><a href="user-profile-settings.html"><i class="fa fa-cog"></i>Settings</a>
+                    </li>
+                    <li><a href="user-profile-photos.html"><i class="fa fa-camera"></i>My Travel Photos</a>
+                    </li> -->
+                    <li><a routerLink="/userorder"><i class="fa fa-clock-o"></i>Booking History</a>
+                    </li>
+                    <!-- <li><a href="user-profile-cards.html"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
+                    </li>
+                    <li><a href="user-profile-wishlist.html"><i class="fa fa-heart-o"></i>Wishlist</a>
+                    </li> -->
+                </ul>
+            </aside>
+        </div>
+        <ng-progress></ng-progress>
+        <div class="col-md-9">
+            <!-- <div class="row">
+                <div class="col-md-5"> -->
+                  <div class="example-container mat-elevation-z8">
+                   
+                <mat-table #table [dataSource]="dataSource" matSort>
+                    
+                   
+                 
+
+                  <ng-container matColumnDef="source">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.source}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="destination">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Destination </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.destination}} </mat-cell>
+                  </ng-container>
+
+                    <ng-container matColumnDef="Booking_date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Booking date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.Booking_date| date}}  </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="checking_date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Checkin Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.checking_date | date }} </mat-cell>
+                  </ng-container>
+                <!-- Status -->
+                  <ng-container matColumnDef="checkout_date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.checkout_date | date}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="amount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="car_id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Car ID </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.fk_car_id}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="car_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Car </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.fk_car_name}} </mat-cell>
+                  </ng-container>
+                                                          
+                 
+              
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <mat-paginator #paginator
+                [pageSize]="2"
+                [pageSizeOptions]="[2,5,10]">
+              </mat-paginator>
+            </div>
+                </div>
+            <!-- </div>
+
+        </div> -->
+    </div>
+</div>
+<app-footer></app-footer>

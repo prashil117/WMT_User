@@ -1,0 +1,124 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1 class="page-title">Account Settings</h1>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <aside class="user-profile-sidebar">
+                <div class="user-profile-avatar text-center">
+                    <img src="https://wishmytrip.herokuapp.com/images/user/{{img}}" alt="Image Alternative text" title="AMaze" />
+                    <button mat-icon-button color="primary" name="btnImg">
+                        <mat-icon (click)="getPicture()">mode edit</mat-icon>
+                    </button>
+                    <input required type="file" name="pst_pic" style="visibility: hidden" #fileInput (change)="onFileSelected($event)" id="">
+                    <h5>{{name1}}</h5>
+                    
+                </div>
+                <ul class="list user-profile-nav">
+                    <!-- <li><a href="user-profile.html"><i class="fa fa-user"></i>Overview</a>
+                    </li>
+                    <li><a href="user-profile-settings.html"><i class="fa fa-cog"></i>Settings</a>
+                    </li>
+                    <li><a href="user-profile-photos.html"><i class="fa fa-camera"></i>My Travel Photos</a>
+                    </li> -->
+                    <li><a routerLink="/userorder"><i class="fa fa-clock-o"></i>Booking History</a>
+                    </li>
+                    <!-- <li><a href="user-profile-cards.html"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
+                    </li>
+                    <li><a href="user-profile-wishlist.html"><i class="fa fa-heart-o"></i>Wishlist</a>
+                    </li> -->
+                </ul>
+            </aside>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-5">
+                    <form action="">
+                        <h4>Personal Infomation</h4>
+                        <div class="form-group form-group-icon-left"><!--<i class="fa fa-user input-icon"></i>
+                            <!-- <label>First Name</label>
+                            <input class="form-control" value="John" type="text" /> -->
+                            <mat-form-field  class="example-full-width">
+                                <input matInput ngModel required  name="name" type="text" placeholder="Enter Name" [(ngModel)]="name1"  #name="ngModel"  >
+                                 <mat-error *ngIf="name.hasError('required')" >Enter Name</mat-error>
+                              </mat-form-field>
+                        </div>
+                         <div class="form-group form-group-icon-left"><!--<i class="fa fa-user input-icon"></i>
+                            <label>Last Name</label>
+                            <input class="form-control" value="Doe" type="text" /> -->
+                            <mat-form-field  class="example-full-width">
+                                    <input matInput ngModel required email name="email" type="email" placeholder="Enter email" [(ngModel)]="email1" #email="ngModel" >
+                                     <mat-error *ngIf="email.hasError('required')" >Enter Email</mat-error>
+                                     <mat-error *ngIf="email.hasError('email_id')" >Enter valid Email Address</mat-error>                    
+                                  </mat-form-field>
+                        </div>
+                        <div class="form-group form-group-icon-left"><!--<i class="fa fa-envelope input-icon"></i>
+                            <label>E-mail</label>
+                            <input class="form-control" value="johndoe@gmail.com" type="text" />-->
+                            <mat-form-field  class="example-full-width">
+                                    <input matInput ngModel required  name="address" type="text" placeholder="Enter Address" [(ngModel)]="address1" #address="ngModel">
+                                     <mat-error *ngIf="address.hasError('required')" >Enter Address</mat-error>
+                                  </mat-form-field>
+                        </div>
+                        <div class="form-group form-group-icon-left"><!--<i class="fa fa-phone input-icon"></i>
+                            <label>Phone Number</label>
+                            <input class="form-control" value="+1 202 555 0113" type="text" />-->
+                            Gender:  <input type="radio" [checked]="gender=='male'" [(ngModel)]="gender" name="gender" value="male"> male <input type="radio" name="gender" [(ngModel)]="gender" [checked]="gender=='female'" value="female"> female
+                        </div>
+                       
+                        <div class="form-group form-group-icon-left"><!--<i class="fa fa-plane input-icon"></i>
+                            <label>Home Airport</label>
+                            <input class="form-control" value="London Heathrow Airport (LHR)" type="text" />-->
+                            <mat-form-field  class="example-full-width">
+                                    <input matInput ngModel required maxlength="10" minlength="10" number  name="mobile" type="text" placeholder="Enter Mobile No" [(ngModel)]="mobile1" #mobile="ngModel">
+                                     <mat-error *ngIf="mobile.hasError('required')" >Enter Mobile No</mat-error>
+                                  </mat-form-field>
+                        </div>
+
+                        <hr>
+                        <input type="submit" class="btn btn-primary" value="Save Changes" (click)="onUpdate()">
+                    </form>
+                </div>
+                <div class="col-md-4 col-md-offset-1">
+                    <h4>Change Password</h4>
+                    <form>
+                        <div class="form-group form-group-icon-left"><!--<i class="fa fa-lock input-icon"></i>
+                            <label>Current Password</label>
+                            <input class="form-control" type="password" />-->
+                            <mat-form-field  class="example-full-width">
+                                    <input matInput ngModel required password maxlength="12" minlength="6" name="password1" type="password" placeholder="Enter Original Password" [(ngModel)]="pass1" #password1="ngModel">
+                                     <mat-error *ngIf="password1.hasError('required')" >Enter Original Password</mat-error>
+                                  </mat-form-field>
+                        </div>
+                        <div class="form-group form-group-icon-left"><!--<i class="fa fa-lock input-icon"></i>
+                            <label>New Password</label>
+                            <input class="form-control" type="password" />-->
+                            <mat-form-field  class="example-full-width">
+                                    <input matInput ngModel required password maxlength="12" minlength="6" name="password" type="password" placeholder="Enter New Password" [(ngModel)]="pass" #password="ngModel" >
+                                     <mat-error *ngIf="password.hasError('required')" >Enter New Password</mat-error>
+                                  </mat-form-field>
+                        </div>
+                        <div class="form-group form-group-icon-left"><!--<i class="fa fa-lock input-icon"></i>
+                            <label>New Password Again</label>
+                            <input class="form-control" type="password" />-->
+                            <mat-form-field class="example-full-width">
+                                    <input matInput ngModel required password maxlength="12" minlength="6" name="password2" type="password" placeholder="Retype Password" [(ngModel)]="pass2" #password2="ngModel">
+                                     <mat-error *ngIf="password2.hasError('required')" >Retype Password</mat-error>
+                                  </mat-form-field>
+                        </div>
+                        <ng-progress></ng-progress>
+                        <hr />
+                        <input class="btn btn-primary" type="submit" (click)="Changepassword()" value="Change Password" />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

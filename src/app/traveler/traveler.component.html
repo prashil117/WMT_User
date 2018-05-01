@@ -1,0 +1,875 @@
+<app-navbar></app-navbar>
+<div class="container">
+
+    <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
+        <h3>Traveler</h3>
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-highlight"></i>
+                        <label>Pick-up From</label>
+                        <input class="typeahead form-control" placeholder="City, Airport or U.S. Zip Code" type="text" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-highlight"></i>
+                        <label>Drop-off To</label>
+                        <input class="typeahead form-control" placeholder="City, Airport or U.S. Zip Code" value="Same as Pick-up" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="input-daterange" data-date-format="MM d, D">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                            <label>Pick-up Date</label>
+                            <input class="form-control" name="start" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-clock-o input-icon input-icon-highlight"></i>
+                            <label>Drop-off Time</label>
+                            <input class="time-pick form-control" value="12:00 AM" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                            <label>Drop-off Date</label>
+                            <input class="form-control" name="end" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-clock-o input-icon input-icon-highlight"></i>
+                            <label>Pick-up Time</label>
+                            <input class="time-pick form-control" value="12:00 AM" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Search for Flights</button>
+        </form>
+    </div>
+    <!-- <h3 class="booking-title">105 Rental Cars in New York on Mar 22 - Mar 27<small><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out" (click)="Onchange()">Change search</a></small></h3>
+    <div class="booking-item-dates-change mb30">
+        <form class="input-daterange" data-date-format="MM d, D">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-hightlight"></i>
+                        <label>Pick Up Location</label>
+                        <input class="typeahead form-control" value="USA, New York" placeholder="City or Airport" type="text" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
+                                <label>Check in</label>
+                                <input class="form-control" name="start" type="text" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-icon-left"><i class="fa fa-clock-o input-icon input-icon-hightlight"></i>
+                                <label>Time</label>
+                                <input class="time-pick form-control" value="12:00 AM" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group form-group-icon-left"><i class="fa fa-map-marker input-icon input-icon-hightlight"></i>
+                        <label>Drop Off Location</label>
+                        <input class="typeahead form-control" value="Same as Pickup" placeholder="City or Airport" type="text" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
+                                <label>Check out</label>
+                                <input class="form-control" name="end" type="text" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-icon-left"><i class="fa fa-clock-o input-icon input-icon-hightlight"></i>
+                                <label>Time</label>
+                                <input class="time-pick form-control" value="12:00 AM" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div> -->
+    <div class="row">
+        <div class="col-md-3">
+          
+        </div>
+        <div class="col-md-12">
+            <ng-progress></ng-progress>
+            <ul class="booking-list">
+                <li *ngFor="let item of traveler">
+                    <a class="booking-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="https://wishmytrip.herokuapp.com/images/traveller/{{item.traveller_img}}" alt="Image Alternative text" title="Image Title" height="100" width="100" />
+                                    <p class="booking-item-car-title"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                          <b> <h2>Traveller<br>{{item.traveller_name}}</h2> </b> 
+                                          
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Car with Driver"><i class="im im-driver"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">{{item.car_rate}}</span><span>/KM</span>
+                                <p class="booking-item-flight-class"></p><span class="btn btn-primary" (click)="select(item)">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <!--<li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Toyota-Prius-Plus.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Toyota Prius Plus</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 4</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Manual Transmission"><i class="im im-shift"></i><span class="booking-item-feature-sign">manual</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Gas Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">gas</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Terminal Pickup"><i class="fa fa-plane"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$79</span><span>/day</span>
+                                <p class="booking-item-flight-class">Compact</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Audi-S8.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Audi S8</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 6</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 2</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 2</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Manual Transmission"><i class="im im-shift"></i><span class="booking-item-feature-sign">manual</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Electric Vehicle"><i class="im im-electric"></i>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$35</span><span>/day</span>
+                                <p class="booking-item-flight-class">Fullsize</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Mercedes-Benz-Clasa-G-facelift.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Mercedes Benz G</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 2</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Hybrid Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">hybrid</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Climate Control"><i class="im im-climate-control"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Tilt Steering Wheel"><i class="im im-car-wheel"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Car with Driver"><i class="im im-driver"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$85</span><span>/day</span>
+                                <p class="booking-item-flight-class">Crossover</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Lamborghini-Mansory-Aventador.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Lamborghini Aventador</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 2</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Electric Vehicle"><i class="im im-electric"></i>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Climate Control"><i class="im im-climate-control"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Meet and Greet"><i class="im im-meet"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$89</span><span>/day</span>
+                                <p class="booking-item-flight-class">Luxury</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Mitsubishi-Outlander_2013.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Mitsubishi Outlander</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 4</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Electric Vehicle"><i class="im im-electric"></i>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Meet and Greet"><i class="im im-meet"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$45</span><span>/day</span>
+                                <p class="booking-item-flight-class">SUV</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Land-Rover-Range-Rover-Evoque.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Range Rover Evoque</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 2</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 4</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 1</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Hybrid Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">hybrid</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Tilt Steering Wheel"><i class="im im-car-wheel"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$58</span><span>/day</span>
+                                <p class="booking-item-flight-class">Crossover</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Volvo-V40.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Volvo V40</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Electric Vehicle"><i class="im im-electric"></i>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Climate Control"><i class="im im-climate-control"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Tilt Steering Wheel"><i class="im im-car-wheel"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$67</span><span>/day</span>
+                                <p class="booking-item-flight-class">Midsize</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Honda-Civic.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Honda Civic</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 2</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 1</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Manual Transmission"><i class="im im-shift"></i><span class="booking-item-feature-sign">manual</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Gas Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">gas</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Air Conditioning"><i class="im im-air"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Meet and Greet"><i class="im im-meet"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$41</span><span>/day</span>
+                                <p class="booking-item-flight-class">Economy</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Nissan-GT-R.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Nissan GT R</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 2</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Manual Transmission"><i class="im im-shift"></i><span class="booking-item-feature-sign">manual</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Gas Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">gas</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Air Conditioning"><i class="im im-air"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Tilt Steering Wheel"><i class="im im-car-wheel"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Terminal Pickup"><i class="fa fa-plane"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Meet and Greet"><i class="im im-meet"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$50</span><span>/day</span>
+                                <p class="booking-item-flight-class">Premium</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Porsche-Cayenne-Turbo-S.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Porsche Cayenne</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 4</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 1</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Gas Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">gas</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$40</span><span>/day</span>
+                                <p class="booking-item-flight-class">SUV</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/BMW-X6-facelift.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">BMW X6</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 6</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Electric Vehicle"><i class="im im-electric"></i>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Tilt Steering Wheel"><i class="im im-car-wheel"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Terminal Pickup"><i class="fa fa-plane"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$72</span><span>/day</span>
+                                <p class="booking-item-flight-class">Crossover</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Chevrolet-Camaro.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Chevrolet Camaro</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Diesel Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">diesel</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$50</span><span>/day</span>
+                                <p class="booking-item-flight-class">Stabdart</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Volkswagen-Polo-BlueGT.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Volkswagen Polo</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 1</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Automatic Transmission"><i class="im im-shift-auto"></i><span class="booking-item-feature-sign">auto</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Diesel Vehicle"><i class="im im-diesel"></i><span class="booking-item-feature-sign">diesel</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Air Conditioning"><i class="im im-air"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Satellite Navigation"><i class="im im-satellite"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Stereo CD/MP3"><i class="im im-stereo"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Terminal Pickup"><i class="fa fa-plane"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Meet and Greet"><i class="im im-meet"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$86</span><span>/day</span>
+                                <p class="booking-item-flight-class">Economy</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="booking-item" href="#">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="booking-item-car-img">
+                                    <img src="./assets/img/Maserati-GranTurismo-Sport-facelift.png" alt="Image Alternative text" title="Image Title" />
+                                    <p class="booking-item-car-title">Maserati GranTurismo</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <ul class="booking-item-features booking-item-features-sign clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Passengers"><i class="fa fa-male"></i><span class="booking-item-feature-sign">x 4</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Doors"><i class="im im-car-doors"></i><span class="booking-item-feature-sign">x 3</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Baggage Quantity"><i class="fa fa-briefcase"></i><span class="booking-item-feature-sign">x 5</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Manual Transmission"><i class="im im-shift"></i><span class="booking-item-feature-sign">manual</span>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Electric Vehicle"><i class="im im-electric"></i>
+                                            </li>
+                                        </ul>
+                                        <ul class="booking-item-features booking-item-features-small clearfix">
+                                            <li rel="tooltip" data-placement="top" title="Power Door Locks"><i class="im im-lock"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="FM Radio"><i class="im im-fm"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Power Windows"><i class="im im-car-window"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="booking-item-features booking-item-features-dark">
+                                            <li rel="tooltip" data-placement="top" title="Terminal Pickup"><i class="fa fa-plane"></i>
+                                            </li>
+                                            <li rel="tooltip" data-placement="top" title="Car with Driver"><i class="im im-driver"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"><span class="booking-item-price">$84</span><span>/day</span>
+                                <p class="booking-item-flight-class">Luxury</p><span class="btn btn-primary">Select</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>-->
+            </ul>
+            <div class="row">
+                <div class="col-md-6">
+                    
+                </div>
+                <div class="col-md-6 text-right">
+                    <p> <a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out"></a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gap"></div>
+</div>
+<app-footer></app-footer>
