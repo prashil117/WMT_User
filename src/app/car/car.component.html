@@ -100,9 +100,9 @@
             </div>
         </form>
     </div> -->
-     <div class="row">
-       <div class="col-md-2">
-           <!-- <aside class="booking-filters text-white">
+    <div class="row">
+        <div class="col-md-2">
+            <!-- <aside class="booking-filters text-white">
                 <h3>Filter By:</h3>
                 <ul class="list booking-filters-list">
                     <li>
@@ -245,32 +245,20 @@
                     </li> 
                 </ul>
             </aside>-->
-        </div> 
+        </div>
         <div class="col-md-10">
-            <div class="nav-drop booking-sort">
-                <h5 class="booking-sort-title"><a href="#">Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>
-                <ul class="nav-drop-menu">
-                    <li><a href="#">Price (high to low)</a>
-                    </li>
-                    <li><a href="#">Car Name (A-Z)</a>
-                    </li>
-                    <li><a href="#">Car Name (Z-A)</a>
-                    </li>
-                    <li><a href="#">Car Type</a>
-                    </li>
-                </ul>
-            </div>
+
             <ng-progress></ng-progress>
             <ul class="booking-list">
                 <li *ngFor="let item of car">
-                    <a class="booking-item" >
+                    <a class="booking-item">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="booking-item-car-img">
-                                        <img class="origin round" src="https://wishmytrip.herokuapp.com/images/car/{{item.car_img}}" alt="Image Alternative text" title="AMaze" height="100" width="100"/>
+                                    <img class="origin round" src="https://wishmytrip.herokuapp.com/images/car/{{item.car_img}}" alt="Image Alternative text" title="AMaze" height="100" width="100" />
                                     <!--<img src="./assets/img/Volkswagen-Touareg-Edition-X.png" alt="Image Alternative text" title="Image Title" />-->
-                                      <!-- <img src="http://localhost:3000/{{item.car_img}}" alt="Image Alternative text" title="Image Title" />-->
-                                      <!--  <img ng-src="http://www.gravatar.com/avatar/{{item.car_img}}" alt="Description" />-->
+                                    <!-- <img src="http://localhost:3000/{{item.car_img}}" alt="Image Alternative text" title="Image Title" />-->
+                                    <!--  <img ng-src="http://www.gravatar.com/avatar/{{item.car_img}}" alt="Description" />-->
                                     <p class="booking-item-car-title">{{item.car_name}}</p>
                                 </div>
                             </div>
@@ -300,14 +288,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-md-4">
-                                        <ul class="booking-item-features booking-item-features-dark">
-                                            <li rel="tooltip" data-placement="top" title="Shuttle Bus to Car"><i class="im im-bus"></i>
-                                            </li>
-                                            <li rel="tooltip" data-placement="top" title="Car with Driver"><i class="im im-driver"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-3"><span class="booking-item-price"></span><span></span>
@@ -983,7 +964,7 @@
                         </div>
                     </a>
                 </li>-->
-              <!--  <li>
+                <!--  <li>
                     <a class="booking-item" href="#">
                         <div class="row">
                             <div class="col-md-3">
