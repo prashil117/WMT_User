@@ -34,65 +34,63 @@
         <div class="col-md-9">
             <!-- <div class="row">
                 <div class="col-md-5"> -->
-                  <div class="example-container mat-elevation-z8">
-                   
+            <div class="example-container mat-elevation-z8">
+
                 <mat-table #table [dataSource]="dataSource" matSort>
-                    
-                   
-                 
 
-                  <ng-container matColumnDef="source">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.source}} </mat-cell>
-                  </ng-container>
 
-                  <ng-container matColumnDef="destination">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Destination </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.destination}} </mat-cell>
-                  </ng-container>
+
+
+                    <ng-container matColumnDef="source">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.source}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="destination">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Destination </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.destination}} </mat-cell>
+                    </ng-container>
 
                     <ng-container matColumnDef="Booking_date">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Booking date </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.Booking_date| date}}  </mat-cell>
-                  </ng-container>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Booking date </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Booking_date| date}} </mat-cell>
+                    </ng-container>
 
-                  <ng-container matColumnDef="checking_date">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Checkin Date </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.checking_date | date }} </mat-cell>
-                  </ng-container>
-                <!-- Status -->
-                  <ng-container matColumnDef="checkout_date">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Date </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.checkout_date | date}} </mat-cell>
-                  </ng-container>
+                    <ng-container matColumnDef="checking_date">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Checkin Date </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.checking_date | date }} </mat-cell>
+                    </ng-container>
+                    <!-- Status -->
+                    <ng-container matColumnDef="checkout_date">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Date </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.checkout_date | date}} </mat-cell>
+                    </ng-container>
 
-                  <ng-container matColumnDef="amount">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
-                  </ng-container>
+                    <ng-container matColumnDef="amount">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.amount | currency:'INR'}} </mat-cell>
+                    </ng-container>
 
-                  <ng-container matColumnDef="car_id">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Car ID </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.fk_car_id}} </mat-cell>
-                  </ng-container>
+                    <ng-container matColumnDef="car_id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Car ID </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.fk_car_id}} </mat-cell>
+                    </ng-container>
 
-                  <ng-container matColumnDef="car_name">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Car </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.fk_car_name}} </mat-cell>
-                  </ng-container>
-                                                          
-                 
-              
-                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    <ng-container matColumnDef="car_name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Car </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.fk_car_name}} </mat-cell>
+                    </ng-container>
+
+
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                 </mat-table>
-                <mat-paginator #paginator
-                [pageSize]="2"
-                [pageSizeOptions]="[2,5,10]">
-              </mat-paginator>
+                <mat-paginator #paginator [pageSize]="2" [pageSizeOptions]="[2,5,10]">
+                </mat-paginator>
             </div>
-                </div>
-            <!-- </div>
+        </div>
+        <!-- </div>
 
         </div> -->
     </div>

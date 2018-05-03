@@ -32,7 +32,7 @@
                                         <span>Cars</span>
                                     </a>
                                 </li> -->
-                                <!-- <li>
+<!-- <li>
                                     <a href="#tab-2" data-toggle="tab">
                                         <i class="fa fa-plane"></i>
                                         <span>Hotels</span>
@@ -388,7 +388,7 @@
                 </div>
             </div>
         </div> -->
-        <div class="bg-front full-height bg-front-mob-rel" >
+        <div class="bg-front full-height bg-front-mob-rel">
             <div class="container rel full-height">
                 <div class="search-tabs search-tabs-bg search-tabs-bottom">
                     <div class="tabbable">
@@ -648,73 +648,73 @@
                                 </form>
                             </div> -->
                             <div class="tab-pane fade in active" id="tab-3">
-                              <h2>Search for Cheap Rentals Cars</h2>
-                              <form (ngSubmit)="getkm(addform)" #addform="ngForm">
-                                  <div class="row">
-                                      <div class="col-md-3">
-                                          <div class="form-group form-group-lg form-group-icon-left">
-                                              <!-- <i class="fa fa-map-marker input-icon"></i>
+                                <h2>Search for Cheap Rentals Cars</h2>
+                                <form (ngSubmit)="getkm(addform)" #addform="ngForm">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group form-group-lg form-group-icon-left">
+                                                <!-- <i class="fa fa-map-marker input-icon"></i>
                                               <label>Pick-up Location</label>
                                               <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='x' required name="x" id="x" autocorrect="off"
                                                   autocapitalize="off" spellcheck="off" class="form-control" #search /> -->
-                                                  <label>From</label>
-                                                  <mat-form-field class="example-full-width">
-                                                      <input matInput ngModel required text name="x1" type="text" placeholder="Enter Source" #email_id="ngModel">
-                                                       <mat-error *ngIf="email_id.hasError('required')" >Enter Source</mat-error>
-                                                       <mat-error *ngIf="email_id.hasError('email_id')" >Enter valid Email Address</mat-error>                    
-                                                    </mat-form-field>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-3">
-                                          <div class="form-group form-group-lg form-group-icon-left">
-                                              <!-- <i class="fa fa-map-marker input-icon"></i>
+                                                <label>From</label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput ngModel required text name="x1" type="text" placeholder="Enter Source" ng-pattern="/^[a-zA-Z]*$/" #email_id="ngModel">
+                                                    <mat-error *ngIf="email_id.hasError('required')">Enter Source</mat-error>
+                                                    <mat-error *ngIf="email_id.hasError('email_id')">Enter valid Email Address</mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group form-group-lg form-group-icon-left">
+                                                <!-- <i class="fa fa-map-marker input-icon"></i>
                                               <label>Drop-off Location</label>
                                               <input class="typeahead form-control" placeholder="City, Address" type="text" [(ngModel)]='y' required name="y" id="y" autocorrect="off"
                                                   autocapitalize="off" spellcheck="off" class="form-control" #search1 /> -->
-                                                  <label>To</label>
-                                                  <mat-form-field class="example-full-width">
-                                                      <input matInput ngModel required text name="y1" type="text" placeholder="Enter Destination" #email_id1="ngModel">
-                                                       <mat-error *ngIf="email_id1.hasError('required')" >Enter Destination</mat-error>
-                                                       <mat-error *ngIf="email_id1.hasError('email_id')" >Enter valid Email Address</mat-error>                    
-                                                    </mat-form-field>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                          <div class="input-daterange" data-date-format="M d, D">
-                                              <div class="row">
-                                                  <div class="col-md-6">
-                                                      <!-- <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                                <label>To</label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput ngModel required text name="y1" type="text" placeholder="Enter Destination" ng-pattern="/^[a-zA-Z]*$/" #email_id1="ngModel">
+                                                    <mat-error *ngIf="email_id1.hasError('required')">Enter Destination</mat-error>
+                                                    <mat-error *ngIf="email_id1.hasError('email_id')">Enter valid Email Address</mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-daterange" data-date-format="M d, D">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <!-- <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                                           <label>From</label>
                                                           <input class="form-control" name="start" type="text" />
                                                       </div> -->
-                                                      <label>From</label>
-                                                      <mat-form-field class="example-full-width">
-                                                          <input matInput required [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="d1" name="bod" #bod="ngModel">
-                                                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                                          <mat-datepicker touchUi="true" #picker></mat-datepicker>
-                                                      </mat-form-field>
+                                                        <label>From</label>
+                                                        <mat-form-field class="example-full-width">
+                                                            <input matInput required [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="d1" name="bod" #bod="ngModel">
+                                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                                                        </mat-form-field>
 
-                                                  </div>
-                                                  <div class="col-md-6">
-                                                      <!-- <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <!-- <div class="form-group form-group-lg form-group-icon-left"><i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                                           <label>To</label>
                                                           <input class="form-control" name="end" type="text" />
                                                       </div> -->
-                                                      <label>To</label>
-                                                      <mat-form-field class="example-full-width">
-                                                          <input matInput required [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="d2" name="bod1" #bod1="ngModel">
-                                                          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                                                          <mat-datepicker touchUi="true" #picker1></mat-datepicker>
-                                                      </mat-form-field>
-                                                  </div>
-                                                  <ng-progress></ng-progress>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <button class="btn btn-primary btn-lg"  type="submit" [disabled]="!addform.form.valid">Search for Cars</button>
-                              </form>
-                          </div>
+                                                        <label>To</label>
+                                                        <mat-form-field class="example-full-width">
+                                                            <input matInput required [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="d2" name="bod1" #bod1="ngModel">
+                                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                            <mat-datepicker touchUi="true" #picker1></mat-datepicker>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <ng-progress></ng-progress>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-lg" type="submit" [disabled]="!addform.form.valid">Search for Cars</button>
+                                </form>
+                            </div>
                             <!-- <div class="tab-pane fade" id="tab-4">
                                 <h2>Search for Cheap Rental Cars</h2>
                                 <form>

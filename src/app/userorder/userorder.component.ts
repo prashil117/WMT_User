@@ -7,6 +7,7 @@ import { User } from '../login/userc';
 import { UserService } from "../login/user.service";
 import { NgProgress } from 'ngx-progressbar';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-userorder',

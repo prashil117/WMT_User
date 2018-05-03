@@ -148,9 +148,9 @@ export class OrderComponent implements OnInit {
   {
     this.ngProgress.start();
     let item=new order (this.email,this.source,this.destination,this.a,this.checkin,this.checkout,this.finalrate,this.cid,this.cname,null,this.id,"");
-
-    this.msg="Destination:---------- "+"    "+this.destination+"    "+"Current Date:----- "+"     "+this.currentDate+"     "+"Checkin :------------"+"    " +this.checkin+"    "+"Checkout :-----------"+"    "+this.checkout+"    "+"Traveller :-----------"+"    "+this.t+"    "+"Car :-----------"+"   "+this.cname+"    "+"Km :----"+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
-    this.msg1="Destination:---------"+this.destination+"Current Date:--------- "+this.currentDate+"Checkin --------:"+this.checkin+"Checkout :-----------"+this.checkout+"User :----------"+this.uname+"User Email :-----------"+this.email+"User No :--------"+this.uno+"Car :-------"+this.cname+"Km :----------"+this.km;
+    
+    this.msg="Source= "+this.source+ "Destination= "+"    "+this.destination+"    "+"Current Date:=  "+"     "+this.currentDate+"     "+"Checkin= "+"    " +this.checkin+"    "+"Checkout= "+"    "+this.checkout+"    "+"Traveller= "+"    "+this.t+"    "+"Car= "+"   "+this.cname+"    "+"Km = "+"     "+this.km+"                             "+"NOTE::-- TOTL TAX  , PARKING  , OTHER STATE TAX AND EXTRA KM CHARGES SHOULD BE GIVEN BY YOU TO THE DRIVER ..... AND AHMEDABAD TO AHMEDABAD KILOMETER WILL BE CONSIDER AND PER DAY MINIMUM 300KM CHARGES WILL BE TAKEN";
+    this.msg1="Source= "+this.source+ "Destination:= " +this.destination+ "Current Date= "+this.currentDate+"Checkin= "+this.checkin+"Checkout= "+this.checkout+"User= "+this.uname+"User Email= "+this.email+"User No= "+this.uno+"Car = "+this.cname+"Km= "+this.km;
     this._data.Onorder(item).subscribe(
       
      (data:any)=>{
